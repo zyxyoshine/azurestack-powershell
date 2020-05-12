@@ -23,6 +23,6 @@ Describe 'Remove-AzsGalleryItem' {
         $GalleryItem = Add-AzsGalleryItem -GalleryItemUri $uri 
         $GalleryItem | Should Not Be $null
         write-host ($GalleryItem | Format-List | Out-String)
-        $GalleryItem | Remove-AzsGalleryItem 
+        Get-AzsGalleryItem -Name $name | Remove-AzsGalleryItem 
     }
 }

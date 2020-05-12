@@ -4,7 +4,7 @@ if (-Not (Test-Path -Path $loadEnvPath)) {
 }
 . ($loadEnvPath)
 
-$TestRecordingFile = Join-Path $PSScriptRoot 'VMExtension.Tests.Recording.json'
+$TestRecordingFile = Join-Path $PSScriptRoot 'Add-AzsVMExtension.Recording.json'
 $currentPath = $PSScriptRoot
 while(-not $mockingPath) {
     $mockingPath = Get-ChildItem -Path $currentPath -Recurse -Include 'HttpPipelineMocking.ps1' -File
@@ -17,7 +17,6 @@ $global:RunRaw = $RunRaw
 $global:TestName = ""
 
 Describe 'Get-AzsVMExtension' {
-    . $PSScriptRoot\Common.ps1
 
     BeforeEach {
 

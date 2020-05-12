@@ -4,7 +4,7 @@ if (-Not (Test-Path -Path $loadEnvPath)) {
 }
 . ($loadEnvPath)
 
-$TestRecordingFile = Join-Path $PSScriptRoot 'Quota.Tests.Recording.json'
+$TestRecordingFile = Join-Path $PSScriptRoot 'Get-AzsComputeQuota.Recording.json'
 $currentPath = $PSScriptRoot
 while(-not $mockingPath) {
     $mockingPath = Get-ChildItem -Path $currentPath -Recurse -Include 'HttpPipelineMocking.ps1' -File
@@ -13,8 +13,6 @@ while(-not $mockingPath) {
 . ($mockingPath | Select-Object -First 1).FullName
 
 Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
-
-    . $PSScriptRoot\Common.ps1
 
     BeforeEach {
 

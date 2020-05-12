@@ -4,7 +4,7 @@ if (-Not (Test-Path -Path $loadEnvPath)) {
 }
 . ($loadEnvPath)
 
-$TestRecordingFile = Join-Path $PSScriptRoot 'PlatformImage.Tests.Recording.json'
+$TestRecordingFile = Join-Path $PSScriptRoot 'Add-AzsPlatformImage.Recording.json'
 $currentPath = $PSScriptRoot
 while(-not $mockingPath) {
     $mockingPath = Get-ChildItem -Path $currentPath -Recurse -Include 'HttpPipelineMocking.ps1' -File
@@ -18,8 +18,6 @@ $global:TestName = ""
 
 Describe 'Get-AzsPlatformImage' {
     
-    . $PSScriptRoot\Common.ps1
-
     BeforeEach {
 
         function Create() {

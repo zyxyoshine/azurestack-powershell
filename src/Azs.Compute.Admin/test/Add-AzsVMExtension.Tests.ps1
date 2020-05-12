@@ -53,7 +53,7 @@ Describe 'Get-AzsVMExtension' {
     It "TestListVMExtensions" -Skip:$('TestListVMExtensions' -in $global:SkippedTests) {
         $global:TestName = 'TestListVMExtensions'
 
-        $VMExtensions = Get-AzsVMExtension -Location $global:Location
+        $VMExtensions = Get-AzsVMExtension
         $VMExtensions | Should Not Be $null
         foreach ($VMExtension in $VMExtensions) {
             ValidateVMExtension -VMExtension $VMExtension
@@ -64,7 +64,7 @@ Describe 'Get-AzsVMExtension' {
     It "TestGetVMExtension" -Skip:$('TestGetVMExtension' -in $global:SkippedTests) {
         $global:TestName = 'TestGetVMExtension'
 
-        $VMExtensions = Get-AzsVMExtension -Location $global:Location
+        $VMExtensions = Get-AzsVMExtension
         $VMExtensions | Should Not Be $null
         foreach ($VMExtension in $VMExtensions) {
             ValidateVMExtension -VMExtension $VMExtension
@@ -75,11 +75,10 @@ Describe 'Get-AzsVMExtension' {
     It "TestGetAllVMExtensions" -Skip:$('TestGetAllVMExtensions' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllVMExtensions'
 
-        $VMExtensions = Get-AzsVMExtension -Location $global:Location
+        $VMExtensions = Get-AzsVMExtension
         $VMExtensions | Should Not Be $null
         foreach ($VMExtension in $VMExtensions) {
             $vmExt = Get-AzsVMExtension `
-                -Location $vmextension.Location `
                 -Publisher $vmExtension.Publisher `
                 -Type $vmExtension.ExtensionType `
                 -Version $vmExtension.TypeHandlerVersion `
@@ -93,7 +92,6 @@ Describe 'Get-AzsVMExtension' {
     It "TestCreateVMExtension" -Skip:$('TestCreateVMExtension' -in $global:SkippedTests) {
         $global:TestName = 'TestCreateVMExtension'
         $result = Add-AzsVMExtension `
-            -Location $global:Location `
             -Publisher "Microsoft" `
             -Type "MicroExtension" `
             -Version "0.1.0" `
@@ -107,7 +105,7 @@ Describe 'Get-AzsVMExtension' {
 
     It "TestDeleteVMExtension" -Skip:$('TestDeleteVMExtension' -in $global:SkippedTests) {
         $global:TestName = 'TestDeleteVMExtension'
-        Remove-AzsVMExtension -Location $global:Location -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0"
+        Remove-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0"
     }
 }
 

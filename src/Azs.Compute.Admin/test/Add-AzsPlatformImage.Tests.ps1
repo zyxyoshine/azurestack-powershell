@@ -57,7 +57,7 @@ Describe 'Get-AzsPlatformImage' {
     It "TestListPlatformImages" -Skip:$('TestListPlatformImages' -in $global:SkippedTests) {
         $global:TestName = 'TestListPlatformImages'
 
-        $platformImages = Get-AzsPlatformImage -Location $global:Location
+        $platformImages = Get-AzsPlatformImage
 
         $platformImages  | Should Not Be $null
         foreach ($platformImage in $platformImages) {
@@ -68,11 +68,11 @@ Describe 'Get-AzsPlatformImage' {
     It "TestGetPlatformImage" -Skip:$('TestGetPlatformImage' -in $global:SkippedTests) {
         $global:TestName = 'TestGetPlatformImage'
 
-        $platformImages = Get-AzsPlatformImage -Location $global:Location
+        $platformImages = Get-AzsPlatformImage
         $platformImages  | Should Not Be $null
 
         foreach ($platformImage in $platformImages) {
-            $result = Get-AzsPlatformImage -Location $global:Location -Publisher $platformImage.publisher -Offer $platformImage.offer -Sku $platformImage.sku -Version $platformImage.version
+            $result = Get-AzsPlatformImage -Publisher $platformImage.publisher -Offer $platformImage.offer -Sku $platformImage.sku -Version $platformImage.version
             AssertSame -Expected $platformImage -Found $result
             break
         }
@@ -81,7 +81,7 @@ Describe 'Get-AzsPlatformImage' {
     It "TestGetAllPlatformImages" -Skip:$('TestGetAllPlatformImages' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllPlatformImages'
 
-        $platformImages = Get-AzsPlatformImage -Location $global:Location
+        $platformImages = Get-AzsPlatformImage
         $platformImages  | Should Not Be $null
         foreach ($platformImage in $platformImages) {
             $result = $platformImage | Get-AzsPlatformImage
@@ -92,14 +92,13 @@ Describe 'Get-AzsPlatformImage' {
     It "TestCreatePlatformImage" -Skip:$('TestCreatePlatformImage' -in $global:SkippedTests) {
         $global:TestName = 'TestCreatePlatformImage'
 
-        $script:Location = $global:Location;
+        
         $script:Publisher = "Canonical";
         $script:Offer = "UbuntuServer";
         $script:Sku = "16.04-LTS";
         $script:Version = "1.0.0";
 
         $image = Add-AzsPlatformImage `
-            -Location $script:Location `
             -Publisher $script:Publisher `
             -Offer $script:Offer `
             -Sku $script:Sku `
@@ -120,9 +119,7 @@ Describe 'Get-AzsPlatformImage' {
 
         while ($image.ProvisioningState -eq "Creating") {
             # Start-Sleep -Seconds 30
-            Write-host $script:Location
             $image = Get-AzsPlatformImage `
-                -Location $script:Location `
                 -Publisher $script:Publisher `
                 -Offer $script:Offer `
                 -Sku $script:Sku `
@@ -136,14 +133,12 @@ Describe 'Get-AzsPlatformImage' {
     It "TestCreateAndDeletePlatformImage" -Skip:$('TestCreateAndDeletePlatformImage' -in $global:SkippedTests) {
         $global:TestName = 'TestCreateAndDeletePlatformImage'
 
-        $script:Location = $global:Location;
         $script:Publisher = "Microsoft";
         $script:Offer = "UbuntuServer";
         $script:Sku = "16.04-LTS";
         $script:Version = "1.0.0";
 
         $image = Add-AzsPlatformImage `
-            -Location $script:Location `
             -Publisher $script:Publisher `
             -Offer $script:Offer `
             -Sku $script:Sku `
@@ -156,13 +151,12 @@ Describe 'Get-AzsPlatformImage' {
 
         while ($image.ProvisioningState -ne "Succeeded") {
             $image = Get-AzsPlatformImage `
-                -Location $script:Location `
                 -Publisher $script:Publisher `
                 -Sku $script:Sku `
                 -Offer $script:Offer `
                 -Version $script:version
         }
         $image.ProvisioningState | Should be "Succeeded"
-        Remove-AzsPlatformImage -Location $script:Location -Publisher $script:Publisher -Offer $script:Offer -Version $script:version -Sku $script:Sku
+        Remove-AzsPlatformImage -Publisher $script:Publisher -Offer $script:Offer -Version $script:version -Sku $script:Sku
     }
 }

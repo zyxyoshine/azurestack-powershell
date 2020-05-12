@@ -52,7 +52,7 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
 
     It "TestListQuotas" -Skip:$('TestListQuotas' -in $global:SkippedTests) {
         $global:TestName = 'TestListQuotas'
-        $quotas = Get-AzsComputeQuota -Location $global:Location
+        $quotas = Get-AzsComputeQuota
 
         $quotas | Should Not Be $null
         foreach ($quota in $quotas) {
@@ -63,10 +63,10 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
     It "TestGetQuota" -Skip:$('TestGetQuota' -in $global:SkippedTests) {
         $global:TestName = 'TestGetQuota'
 
-        $quotas = Get-AzsComputeQuota -Location $global:Location
+        $quotas = Get-AzsComputeQuota
         $quotas | Should Not Be $null
         foreach ($quota in $quotas) {
-            $result = Get-AzsComputeQuota -Location $global:Location -Name $quota.Name
+            $result = Get-AzsComputeQuota -Name $quota.Name
 
             AssertSame -Expected $quota -Found $result
             break
@@ -75,10 +75,10 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
 
     It "TestGetAllQuotas" -Skip:$('TestGetAllQuotas' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllQuotas'
-        $quotas = Get-AzsComputeQuota -Location $global:Location
+        $quotas = Get-AzsComputeQuota
         $quotas | Should Not Be $null
         foreach ($quota in $quotas) {
-            $result = Get-AzsComputeQuota -Location $global:Location -Name $quota.Name
+            $result = Get-AzsComputeQuota -Name $quota.Name
             AssertSame -Expected $quota -Found $result
         }
     }
@@ -101,7 +101,7 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
 
         $data | ForEach-Object {
             $name = $quotaNamePrefix + $_[6]
-            $quota = New-AzsComputeQuota -Location $global:Location -Name $name -AvailabilitySetCount $_[0] -CoresCount $_[1] -VmScaleSetCount $_[2] -VirtualMachineCount $_[3] -StandardManagedDiskAndSnapshotSize $_[4] -PremiumManagedDiskAndSnapshotSize $_[5]
+            $quota = New-AzsComputeQuota -Name $name -AvailabilitySetCount $_[0] -CoresCount $_[1] -VmScaleSetCount $_[2] -VirtualMachineCount $_[3] -StandardManagedDiskAndSnapshotSize $_[4] -PremiumManagedDiskAndSnapshotSize $_[5]
             $quota.AvailabilitySetCount                 | Should be $_[0]
             $quota.CoresLimit                           | Should be $_[1]
             $quota.VmScaleSetCount                      | Should be $_[2]
@@ -112,7 +112,7 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
 
         $data | ForEach-Object {
             $name = $quotaNamePrefix + $_[6]
-            Remove-AzsComputeQuota -Location $global:Location -Name $name
+            Remove-AzsComputeQuota -Name $name
         }
 
     }
@@ -136,7 +136,7 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
         # Retry the same tests above with the alias, to ensure that usage of alias is not broken
         $data | ForEach-Object {
             $name = $quotaNamePrefix + $_[6]
-            $quota = New-AzsComputeQuota -Location $global:Location -Name $name -AvailabilitySetCount $_[0] -CoresLimit $_[1] -VmScaleSetCount $_[2] -VirtualMachineCount $_[3] -StandardManagedDiskAndSnapshotSize $_[4] -PremiumManagedDiskAndSnapshotSize $_[5]
+            $quota = New-AzsComputeQuota -Name $name -AvailabilitySetCount $_[0] -CoresLimit $_[1] -VmScaleSetCount $_[2] -VirtualMachineCount $_[3] -StandardManagedDiskAndSnapshotSize $_[4] -PremiumManagedDiskAndSnapshotSize $_[5]
             $quota.AvailabilitySetCount                 | Should be $_[0]
             $quota.CoresLimit                           | Should be $_[1]
             $quota.VmScaleSetCount                      | Should be $_[2]
@@ -147,7 +147,7 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
 
         $data | ForEach-Object {
             $name = $quotaNamePrefix + $_[6]
-            Remove-AzsComputeQuota -Location $global:Location -Name $name
+            Remove-AzsComputeQuota -Name $name
         }
 
     }
@@ -175,7 +175,7 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
         $name = "myQuota"
         $data | ForEach-Object {
             {
-                New-AzsComputeQuota -Location $global:Location -Name $name -AvailabilitySetCount $_[0] -CoresCount $_[1] -VmScaleSetCount $_[2] -VirtualMachineCount $_[3] -StandardManagedDiskAndSnapshotSize $_[4] -PremiumManagedDiskAndSnapshotSize $_[5]
+                New-AzsComputeQuota -Name $name -AvailabilitySetCount $_[0] -CoresCount $_[1] -VmScaleSetCount $_[2] -VirtualMachineCount $_[3] -StandardManagedDiskAndSnapshotSize $_[4] -PremiumManagedDiskAndSnapshotSize $_[5]
             } | Should Throw
         }
     }
@@ -190,7 +190,7 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
     It "TestDeleteNonExistingQuota" -Skip:$('TestDeleteNonExistingQuota' -in $global:SkippedTests) {
         $global:TestName = 'TestDeleteNonExistingQuota'
 
-        {Remove-AzsComputeQuota -Location $global:Location -Name "thisdoesnotexistandifitdoesoops" -ErrorAction Stop} | Should Throw "The server responded with a Request Error, Status: NotFound"
+        {Remove-AzsComputeQuota -Name "thisdoesnotexistandifitdoesoops" -ErrorAction Stop} | Should Throw "The server responded with a Request Error, Status: NotFound"
     }
 
     It "TestCreateQuotaOnInvalidLocation" -Skip:$('TestCreateQuotaOnInvalidLocation' -in $global:SkippedTests) {

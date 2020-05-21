@@ -25,6 +25,9 @@ if (Test-Path -Path (Join-Path $PSScriptRoot $envFile)) {
 $env = @{}
 if (Test-Path -Path $envFilePath) {
     $env = Get-Content (Join-Path $PSScriptRoot $envFile) | ConvertFrom-Json
-    $PSDefaultParameterValues=@{"*:SubscriptionId"=$env.SubscriptionId; "*:Tenant"=$env.Tenant; "*:Location"=$env.Location}
+    Write-Host "******In loadenv.ps1******"
+    Write-Host $env.Values
+    $PSDefaultParameterValues=@{"*:SubscriptionId"=$env.SubscriptionId; "*:Tenant"=$env.Tenant}
+    $PSDefaultParameterValues.Add("*:Location", $env.Location)
     Write-Host "Default values: $($PSDefaultParameterValues.Values)"
 }

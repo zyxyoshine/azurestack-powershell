@@ -4,6 +4,9 @@ if (-Not (Test-Path -Path $loadEnvPath)) {
 }
 . ($loadEnvPath)
 
+Write-Host "Default parameter values"
+$PSDefaultParameterValues | Out-String
+
 $TestRecordingFile = Join-Path $PSScriptRoot 'Get-AzsKeyvaultQuota.Recording.json'
 $currentPath = $PSScriptRoot
 while(-not $mockingPath) {

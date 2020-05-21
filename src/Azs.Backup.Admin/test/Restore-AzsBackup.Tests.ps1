@@ -1,3 +1,9 @@
+$loadEnvPath = Join-Path $PSScriptRoot 'loadEnv.ps1'
+if (-Not (Test-Path -Path $loadEnvPath)) {
+    $loadEnvPath = Join-Path $PSScriptRoot '..\loadEnv.ps1'
+}
+. ($loadEnvPath)
+
 $loadEnvPath = Join-Path $PSScriptRoot 'loadEnv.ps1'
 if (-Not (Test-Path -Path $loadEnvPath)) {
     $loadEnvPath = Join-Path $PSScriptRoot '..\loadEnv.ps1'

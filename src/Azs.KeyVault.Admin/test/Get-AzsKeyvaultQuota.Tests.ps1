@@ -2,6 +2,10 @@ $loadEnvPath = Join-Path $PSScriptRoot 'loadEnv.ps1'
 if (-Not (Test-Path -Path $loadEnvPath)) {
     $loadEnvPath = Join-Path $PSScriptRoot '..\loadEnv.ps1'
 }
+
+Write-Host "loadenvpath: $loadEnvPath"
+Get-Content -Path $loadEnvPath | Write-Host
+
 . ($loadEnvPath)
 
 Write-Host "Default parameter values"
@@ -16,7 +20,7 @@ while(-not $mockingPath) {
 
 Describe 'Get-AzsKeyvaultQuota' {
     It 'List' {
-        $quotas = Get-AzsKeyvaultQuota -Location 'local'
+        $quotas = Get-AzsKeyvaultQuota
         $quotas | Should -Not -BeNullOrEmpty    
     }
 }

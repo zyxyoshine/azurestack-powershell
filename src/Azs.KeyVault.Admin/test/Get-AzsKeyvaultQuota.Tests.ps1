@@ -1,12 +1,25 @@
-$loadEnvPath = Join-Path $PSScriptRoot 'loadEnv.ps1'
-if (-Not (Test-Path -Path $loadEnvPath)) {
-    $loadEnvPath = Join-Path $PSScriptRoot '..\loadEnv.ps1'
+# Load Default parameter values
+
+$envFile = 'env.json'
+Write-Host "Loading env.json"
+if ($TestMode -eq 'live') {
+    $envFile = 'localEnv.json'
 }
 
-Write-Host "loadenvpath: $loadEnvPath"
-Get-Content -Path $loadEnvPath | Write-Host
-
-. ($loadEnvPath)
+if (Test-Path -Path (Join-Path $PSScriptRoot $envFile)) {
+    $envFilePath = Join-Path $PSScriptRoot $envFile
+} else {
+    $envFilePath = Join-Path $PSScriptRoot '..\$envFile'
+}
+$env = @{}
+if (Test-Path -Path $envFilePath) {
+    $env = Get-Content (Join-Path $PSScriptRoot $envFile) | ConvertFrom-Json
+    Write-Host "******In loadenv.ps1******"
+    Write-Host $env.Values
+    $PSDefaultParameterValues=@{"*:SubscriptionId"=$env.SubscriptionId; "*:Tenant"=$env.Tenant}
+    $PSDefaultParameterValues.Add("*:Location", $env.Location)
+    Write-Host "Default values: $($PSDefaultParameterValues.Values)"
+}
 
 Write-Host "Default parameter values"
 Write-Host "Default values: $($PSDefaultParameterValues.Values)"

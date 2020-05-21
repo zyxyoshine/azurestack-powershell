@@ -14,7 +14,7 @@ while(-not $mockingPath) {
 
 Describe 'Get-AzsKeyvaultQuota' {
     It 'List' {
-        $quotas = Get-AzsKeyvaultQuota
+        $quotas = Get-AzsKeyvaultQuota -Location 'local'
         $quotas | Should -Not -BeNullOrEmpty    
     }
 }

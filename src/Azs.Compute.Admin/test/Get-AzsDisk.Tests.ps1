@@ -90,7 +90,7 @@ Describe 'Get-AzsDisk' {
     It "TestListDisks" {
         $global:TestName = 'TestListDisks'
 
-        $disks = Get-AzsDisk
+        $disks = Get-AzsDisk -Location $global:Location
 
         $disks | Should Not Be $null
         foreach ($disk in $disks) {
@@ -120,7 +120,7 @@ Describe 'Get-AzsDisk' {
     It "TestGetDisk" {
         $global:TestName = 'TestGetDisk'
 
-        $disks = Get-AzsDisk
+        $disks = Get-AzsDisk -Location $global:Location
 
         $disks | Should Not Be $null
         foreach ($disk in $disks) {

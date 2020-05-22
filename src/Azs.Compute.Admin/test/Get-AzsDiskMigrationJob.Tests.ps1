@@ -15,6 +15,8 @@ if (Test-Path -Path $envFilePath) {
     Write-Host "Default values: $($PSDefaultParameterValues.Values)"
 }
 
+$TestRecordingFile = Join-Path $PSScriptRoot 'Get-AzsDiskMigrationJob.Recording.json'
+
 $currentPath = $PSScriptRoot
 while(-not $mockingPath) {
     $mockingPath = Get-ChildItem -Path $currentPath -Recurse -Include 'HttpPipelineMocking.ps1' -File

@@ -115,6 +115,13 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
         write-host $data
         $data | ForEach-Object {
             $name = $quotaNamePrefix + $_[6]
+            Write-Host "Name: $name"
+            Write-Host "[0]: $($_[0])"
+            Write-Host "[1]: $($_[1])"
+            Write-Host "[2]: $($_[2])"
+            Write-Host "[3]: $($_[3])"
+            Write-Host "[4]: $($_[4])"
+            Write-Host "[5]: $($_[5])"
             $quota = New-AzsComputeQuota -Name $name -AvailabilitySetCount $_[0] -CoresCount $_[1] -VmScaleSetCount $_[2] -VirtualMachineCount $_[3] -StandardManagedDiskAndSnapshotSize $_[4] -PremiumManagedDiskAndSnapshotSize $_[5]
             $quota.AvailabilitySetCount                 | Should be $_[0]
             $quota.CoresLimit                           | Should be $_[1]

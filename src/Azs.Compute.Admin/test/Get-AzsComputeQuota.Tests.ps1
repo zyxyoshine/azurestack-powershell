@@ -111,6 +111,8 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
             @(1000, 1000, 1000, 1000, 1000, 1000, 8)
         )
 
+        write-host "******Why null array?*********"
+        write-host $data
         $data | ForEach-Object {
             $name = $quotaNamePrefix + $_[6]
             $quota = New-AzsComputeQuota -Name $name -AvailabilitySetCount $_[0] -CoresCount $_[1] -VmScaleSetCount $_[2] -VirtualMachineCount $_[3] -StandardManagedDiskAndSnapshotSize $_[4] -PremiumManagedDiskAndSnapshotSize $_[5]

@@ -201,12 +201,14 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
         }
     }
 
+    <# TODO: Uncomment when test recordings for these tests are added 
     # Apparently CRP will default to a place even if it does not exist
     It "TestListInvalidLocation" -Skip:$('TestListInvalidLocation' -in $global:SkippedTests) {
         $global:TestName = 'TestListInvalidLocation'
         $quotas = Get-AzsComputeQuota -Location "thisisnotarealplace"
         $quotas | Should Be $null
     }
+    #>
 
     It "TestDeleteNonExistingQuota" -Skip:$('TestDeleteNonExistingQuota' -in $global:SkippedTests) {
         $global:TestName = 'TestDeleteNonExistingQuota'

@@ -95,7 +95,7 @@ Describe 'Get-AzsPlatformImage' {
         $platformImages = Get-AzsPlatformImage
         $platformImages  | Should Not Be $null
         foreach ($platformImage in $platformImages) {
-            $result = $platformImage | Get-AzsPlatformImage
+            $result = Get-AzsPlatformImage -InputObject $platformImage
             AssertSame -Expected $platformImage -Found $result
         }
     }

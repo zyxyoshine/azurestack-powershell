@@ -1438,5 +1438,41 @@
         },
         "Content": "{\"id\":\"/subscriptions/74c72bdc-d917-431c-a377-8ca80f4238a0/providers/Microsoft.Compute.Admin/locations/northwest/artifactTypes/platformImage/publishers/MicrosoftSQLServer/offers/SQL2016SP1-WS2016/skus/Enterprise/versions/13.1.900310\",\"name\":null,\"type\":\"Microsoft.Compute.Admin/locations/artifactTypes/publishers/offers/skus/versions\",\"location\":\"northwest\",\"properties\":{\"osDisk\":{\"osType\":\"Windows\",\"uri\":\"https://azstmktprodwcu001.blob.core.windows.net/packages/d200e6821950484a8d2014f9ebb1bb9b/Image/disk.vhd?sv=2018-03-28\u0026sr=b\u0026se=2019-04-21T13:02:44Z\u0026sp=r\"},\"dataDisks\":[],\"details\":{\"billingPartNumber\":\"\"},\"replicate\":false,\"provisioningState\":\"Succeeded\"}}"
       }
+    },
+    "Get-AzsPlatformImage+[NoContext]+TestGetAllPlatformImages+$GET+https://management.azure.com/subscriptions/74c72bdc-d917-431c-a377-8ca80f4238a0/providers/Microsoft.Compute.Admin/locations/northwest/artifactTypes/platformImage/publishers/MicrosoftSQLServer/offers/SQL2016SP1-WS2016/skus/SQLDEV/versions/13.1.900310?api-version=2015-12-01-preview+38" : {
+      "Request": {
+        "Method": "GET",
+        "RequestUri": "https://management.azure.com/subscriptions/74c72bdc-d917-431c-a377-8ca80f4238a0/providers/Microsoft.Compute.Admin/locations/northwest/artifactTypes/platformImage/publishers/MicrosoftSQLServer/offers/SQL2016SP1-WS2016/skus/SQLDEV/versions/13.1.900310?api-version=2015-12-01-preview",
+        "Content": null,
+        "Headers": {
+          "x-ms-unique-id": [ "58" ],
+          "User-Agent": [ "AzurePowerShell/Az4.0.0-preview" ],
+          "Authorization": [ "[Filtered]" ]
+        },
+        "ContentHeaders": {
+        }
+      },
+      "Response": {
+        "StatusCode": 200,
+        "Headers": {
+          "Cache-Control": [ "no-cache" ],
+          "Pragma": [ "no-cache" ],
+          "x-ms-correlation-request-id": [ "c35e79e3-b26c-4148-b62c-242f6d955439" ],
+          "Server": [ "Microsoft-HTTPAPI/2.0" ],
+          "WWW-Authenticate": [ "oYG3MIG0oAMKAQChCwYJKoZIgvcSAQICooGfBIGcYIGZBgkqhkiG9xIBAgICAG+BiTCBhqADAgEFoQMCAQ+iejB4oAMCARKicQRvos0z8E/pGQ6GItKbbR8EdNFigZ+ui5s5JOVNmuI1po0k5Eur0zxIIzOO9AFAYfK+DzqZE8KE9bT7pHQjbAqD4sP9PlD45+qhh0oEXtEWtXYknJRXeKJL4Zj/0UBeeZLEqE+yIztsMGjnyqttrLN8" ],
+          "x-ms-ratelimit-remaining-subscription-reads": [ "13687" ],
+          "x-ms-request-id": [ "c35e79e3-b26c-4148-b62c-242f6d955439" ],
+          "x-ms-routing-request-id": [ "NORTHWEST:20200214T174639Z:c35e79e3-b26c-4148-b62c-242f6d955439" ],
+          "Strict-Transport-Security": [ "max-age=31536000; includeSubDomains" ],
+          "X-Content-Type-Options": [ "nosniff" ],
+          "Date": [ "Fri, 14 Feb 2020 17:46:39 GMT" ]
+        },
+        "ContentHeaders": {
+          "Content-Length": [ "721" ],
+          "Content-Type": [ "application/json; charset=utf-8" ],
+          "Expires": [ "-1" ]
+        },
+        "Content": "{\"id\":\"/subscriptions/74c72bdc-d917-431c-a377-8ca80f4238a0/providers/Microsoft.Compute.Admin/locations/northwest/artifactTypes/platformImage/publishers/MicrosoftSQLServer/offers/SQL2016SP1-WS2016/skus/SQLDEV/versions/13.1.900310\",\"name\":null,\"type\":\"Microsoft.Compute.Admin/locations/artifactTypes/publishers/offers/skus/versions\",\"location\":\"northwest\",\"properties\":{\"osDisk\":{\"osType\":\"Windows\",\"uri\":\"https://azstmktprodwcu001.blob.core.windows.net/packages/d200e6821950484a8d2014f9ebb1bb9b/Image/disk.vhd?sv=2018-03-28\u0026sr=b\u0026se=2019-04-21T13:02:44Z\u0026sp=r\"},\"dataDisks\":[],\"details\":{\"billingPartNumber\":\"\"},\"replicate\":false,\"provisioningState\":\"Succeeded\"}}"
+      }
     }
   }

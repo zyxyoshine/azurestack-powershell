@@ -169,7 +169,7 @@ param(
 
     process {
         # Autorest generated code doesn't throw error in case resource already exists
-        $resource = Get-AzsComputeQuota -Name $Name -ErrorAction SilentlyContinue
+        $resource = Get-AzsComputeQuota -Name $Name -ErrorAction SilentlyContinue @PSBoundParameters
         if ($null -ne $resource) { throw "$($MyInvocation.MyCommand): A compute quota with name $Name at location $($resource.Location) already exists" }
         Azs.Compute.Admin.internal\New-AzsComputeQuota @PSBoundParameters
     }

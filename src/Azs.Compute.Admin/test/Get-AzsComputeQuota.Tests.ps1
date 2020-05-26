@@ -23,7 +23,7 @@ while(-not $mockingPath) {
     $currentPath = Split-Path -Path $currentPath -Parent
 }
 . ($mockingPath | Select-Object -First 1).FullName
-
+#. "D:\Github2\azurestack-powershell\src\Azs.Compute.Admin\generated\runtime\HttpPipelineMocking.ps1"
 Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
 
     BeforeEach {
@@ -100,13 +100,13 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
 
         $quotaNamePrefix = "testQuota"
         $data = @(
-           # @(0, 0, 0, 0, 0, 0, 0),
-           # @(1, 0, 0, 0, 0, 0, 1),
-           # @(0, 1, 0, 0, 0, 0, 2),
-           # @(0, 0, 1, 0, 0, 0, 3),
-           # @(0, 0, 0, 1, 0, 0, 4),
-           # @(0, 0, 0, 0, 1, 0, 5),
-           # @(0, 0, 0, 0, 0, 1, 6),
+            @(0, 0, 0, 0, 0, 0, 0),
+            @(1, 0, 0, 0, 0, 0, 1),
+            @(0, 1, 0, 0, 0, 0, 2),
+            @(0, 0, 1, 0, 0, 0, 3),
+            @(0, 0, 0, 1, 0, 0, 4),
+            @(0, 0, 0, 0, 1, 0, 5),
+            @(0, 0, 0, 0, 0, 1, 6),
             @(100, 100, 100, 100 , 100, 100, 7),
             @(1000, 1000, 1000, 1000, 1000, 1000, 8)
         )
@@ -122,7 +122,7 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
             Write-Host "[3]: $($_[3])"
             Write-Host "[4]: $($_[4])"
             Write-Host "[5]: $($_[5])"
-            $quota = New-AzsComputeQuota -Name $name -AvailabilitySetCount $_[0] -CoresCount $_[1] -VmScaleSetCount $_[2] -VirtualMachineCount $_[3] -StandardManagedDiskAndSnapshotSize $_[4] -PremiumManagedDiskAndSnapshotSize $_[5]
+            $quota = New-AzsComputeQuota -Location $env:Location -Name $name -AvailabilitySetCount $_[0] -CoresCount $_[1] -VmScaleSetCount $_[2] -VirtualMachineCount $_[3] -StandardManagedDiskAndSnapshotSize $_[4] -PremiumManagedDiskAndSnapshotSize $_[5]
             $quota.AvailabilitySetCount                 | Should be $_[0]
             $quota.CoresLimit                           | Should be $_[1]
             $quota.VmScaleSetCount                      | Should be $_[2]

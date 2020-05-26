@@ -65,7 +65,7 @@ Describe 'Get-AzsDiskMigrationJob' {
         $job1 | Should Not Be $null
         $job1.Id | Should Be $jobs[0].Id
         ValidateDiskMigration -DiskMigration $job1
-        $job2 = $jobs[0] | Get-AzsDiskMigrationJob 
+        $job2 = Get-AzsDiskMigrationJob -InputObject $jobs[0]
         $job2 | Should Not Be $null
         $job2.Id | Should Be $jobs[0].Id
         ValidateDiskMigration -DiskMigration $job2

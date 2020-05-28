@@ -24,6 +24,16 @@ Describe 'Remove-AzsGalleryItem' {
         $GalleryItem | Should Not Be $null
         write-host ($GalleryItem | Format-List | Out-String)
         $ipObject = Get-AzsGalleryItem -Name $name 
-        Remove-AzsGalleryItem -InputObject $ipObject
+
+        $params = @{}
+        if ($PSBoundParameters.ContainsKey('Location')){
+            $params.Add('Location', $Location)
+        }
+        if ($PSBoundParameters.ContainsKey('SubscriptionId')){
+            $params.Add('SubscriptionId', $SubscriptionId)
+        }
+        
+
+        Remove-AzsGalleryItem -InputObject $ipObject @params
     }
 }

@@ -33,6 +33,6 @@ Describe 'Remove-AzsGalleryItem' {
         Write-Host "NAME : $name"
         Write-Host "params : $($params.Values)"
        # $ipObject = Get-AzsGalleryItem -Name $name @params
-        Remove-AzsGalleryItem -Name $name #-InputObject $ipObject @params
+        Remove-AzsGalleryItem -InputObject $GalleryItem @params
     }
 }

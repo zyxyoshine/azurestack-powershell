@@ -2424,6 +2424,45 @@
       "Content": null
     }
   },
+  "Quota+[NoContext]+TestQuotaCreateUpdateDeleteWithAlias+$DELETE+https://management.azure.com/subscriptions/74c72bdc-d917-431c-a377-8ca80f4238a0/providers/Microsoft.Compute.Admin/locations/northwest/quotas/testQuotaCreateUpdateDelete?api-version=2018-02-09+4": {
+    "Request": {
+      "Method": "DELETE",
+      "RequestUri": "https://management.azure.com/subscriptions/74c72bdc-d917-431c-a377-8ca80f4238a0/providers/Microsoft.Compute.Admin/locations/northwest/quotas/testQuotaCreateUpdateDelete?api-version=2018-02-09",
+      "Content": null,
+      "Headers": {
+        "x-ms-unique-id": [ "92" ],
+        "x-ms-client-request-id": [ "6d16d413-9f9d-4b32-9547-efe22f481dac" ],
+        "CommandName": [ "Remove-AzsComputeQuota" ],
+        "FullCommandName": [ "Remove-AzsComputeQuota_DeleteViaIdentity" ],
+        "ParameterSetName": [ "__AllParameterSets" ],
+        "User-Agent": [ "AzurePowerShell/Az4.0.0-preview" ],
+        "Authorization": [ "[Filtered]" ]
+      },
+      "ContentHeaders": {
+      }
+    },
+    "Response": {
+      "StatusCode": 200,
+      "Headers": {
+        "Cache-Control": [ "no-cache" ],
+        "Pragma": [ "no-cache" ],
+        "x-ms-correlation-request-id": [ "34b53ec6-0667-4e56-9370-7e1a4939c411" ],
+        "Server": [ "Microsoft-HTTPAPI/2.0" ],
+        "WWW-Authenticate": [ "oYG3MIG0oAMKAQChCwYJKoZIgvcSAQICooGfBIGcYIGZBgkqhkiG9xIBAgICAG+BiTCBhqADAgEFoQMCAQ+iejB4oAMCARKicQRvzoJDA8eGi79d3fwSdDRrGl7ZUftDZQLkAnBbnW4Q1a2R1ux8R9OIYS5FeQZWnLRZEwUA8JGLz//QOcZ8HHL6q/eTpbGxYz7RqgclDnfvs0ZjG35/2h28XZPzifNijBuL/RQeosjHb0elqkzoGzmj" ],
+        "x-ms-ratelimit-remaining-subscription-deletes": [ "14980" ],
+        "x-ms-request-id": [ "34b53ec6-0667-4e56-9370-7e1a4939c411" ],
+        "x-ms-routing-request-id": [ "NORTHWEST:20200325T234015Z:34b53ec6-0667-4e56-9370-7e1a4939c411" ],
+        "Strict-Transport-Security": [ "max-age=31536000; includeSubDomains" ],
+        "X-Content-Type-Options": [ "nosniff" ],
+        "Date": [ "Wed, 25 Mar 2020 23:40:15 GMT" ]
+      },
+      "ContentHeaders": {
+        "Expires": [ "-1" ],
+        "Content-Length": [ "0" ]
+      },
+      "Content": null
+    }
+  },
   "Quota+[NoContext]+TestQuotaCreateUpdateDeleteWithAlias+$PUT+https://management.azure.com/subscriptions/74c72bdc-d917-431c-a377-8ca80f4238a0/providers/Microsoft.Compute.Admin/locations/northwest/quotas/testQuotaCreateUpdateDelete?api-version=2018-02-09+1": {
     "Request": {
       "Method": "PUT",

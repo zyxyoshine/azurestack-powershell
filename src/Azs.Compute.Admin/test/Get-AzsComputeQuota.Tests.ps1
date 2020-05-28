@@ -270,22 +270,23 @@ Describe "Quota" -Tags @('Quota', 'Azs.Compute.Admin') {
         New-AzsComputeQuota -Name "testQuotaCreateUpdateDelete"
 
         $quotaObject = Get-AzsComputeQuota -Name "testQuotaCreateUpdateDelete"
-        $quotaObject.AvailabilitySetCount = 2
+        $quotaObject.AvailabilitySetCount = 1
         $quotaObject.CoresLimit = 1
-        $quotaObject.VmScaleSetCount = 2
-        $quotaObject.VirtualMachineCount = 2
+        $quotaObject.VmScaleSetCount = 1
+        $quotaObject.VirtualMachineCount = 1
         $quotaObject.StandardManagedDiskAndSnapshotSize = 1
         $quotaObject.PremiumManagedDiskAndSnapshotSize = 1
 
         $quota = Set-AzsComputeQuota -NewQuota $quotaObject
 
         $quota | Should not be $null
-        $quota.AvailabilitySetCount | Should be 2
+        $quota.AvailabilitySetCount | Should be 1
         $quota.CoresLimit | Should be 1
-        $quota.VmScaleSetCount | Should be 2
-        $quota.VirtualMachineCount | Should be 2
+        $quota.VmScaleSetCount | Should be 1
+        $quota.VirtualMachineCount | Should be 1
         $quota.StandardManagedDiskAndSnapshotSize | Should be 1
         $quota.PremiumManagedDiskAndSnapshotSize | Should be 1
+        
+        Remove-AzsComputeQuota -InputObject $quota
     }
-    Remove-AzsComputeQuota -InputObject $quota
 }

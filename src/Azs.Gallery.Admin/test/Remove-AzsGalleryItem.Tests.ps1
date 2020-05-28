@@ -22,17 +22,10 @@ Describe 'Remove-AzsGalleryItem' {
 
         $GalleryItem = Add-AzsGalleryItem -GalleryItemUri $uri 
         $GalleryItem | Should Not Be $null
-        #write-host ($GalleryItem | Format-List | Out-String)
-        Write-Host "******* DEFAULT VALUES *******"
-        write-host ($PSDefaultParameterValues | Format-List | Out-String)
-        Write-Host ($PSBoundParameters | Format-List | Out-String)
         $params = @{}
         if ($PSDefaultParameterValues.ContainsKey('SubscriptionId')){
             $params.Add('SubscriptionId', $SubscriptionId)
         }
-        Write-Host "NAME : $name"
-        Write-Host "params : $($params.Values)"
-       # $ipObject = Get-AzsGalleryItem -Name $name @params
         Remove-AzsGalleryItem -InputObject $GalleryItem @params
     }
 }

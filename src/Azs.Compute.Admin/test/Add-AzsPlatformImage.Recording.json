@@ -1445,7 +1445,7 @@
         "RequestUri": "https://management.azure.com/subscriptions/74c72bdc-d917-431c-a377-8ca80f4238a0/providers/Microsoft.Compute.Admin/locations/northwest/artifactTypes/platformImage/publishers/MicrosoftSQLServer/offers/SQL2016SP1-WS2016/skus/SQLDEV/versions/13.1.900310?api-version=2015-12-01-preview",
         "Content": null,
         "Headers": {
-          "x-ms-unique-id": [ "58" ],
+          "x-ms-unique-id": [ "59" ],
           "User-Agent": [ "AzurePowerShell/Az4.0.0-preview" ],
           "Authorization": [ "[Filtered]" ]
         },
@@ -1480,7 +1480,7 @@
           "RequestUri": "https://management.azure.com/subscriptions/74c72bdc-d917-431c-a377-8ca80f4238a0/providers/Microsoft.Compute.Admin/locations/northwest/artifactTypes/platformImage/publishers/MicrosoftSQLServer/offers/SQL2016SP1-WS2016/skus/Standard/versions/13.1.900310?api-version=2015-12-01-preview",
           "Content": null,
           "Headers": {
-            "x-ms-unique-id": [ "58" ],
+            "x-ms-unique-id": [ "60" ],
             "User-Agent": [ "AzurePowerShell/Az4.0.0-preview" ],
             "Authorization": [ "[Filtered]" ]
           },

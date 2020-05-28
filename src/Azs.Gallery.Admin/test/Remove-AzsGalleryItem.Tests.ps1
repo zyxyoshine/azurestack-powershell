@@ -26,24 +26,13 @@ Describe 'Remove-AzsGalleryItem' {
         Write-Host "******* DEFAULT VALUES *******"
         write-host ($PSDefaultParameterValues | Format-List | Out-String)
         Write-Host ($PSBoundParameters | Format-List | Out-String)
-        if ($PSBoundParameters.ContainsKey('Location')){
-            Write-Host "Location: $Location"
-        }
-        if ($PSBoundParameters.ContainsKey('SubscriptionId')){
-           Write-Host "SubscriptionId: $SubscriptionId"
-        }
-        Write-Host "NAME : $name"
-        $ipObject = Get-AzsGalleryItem -Name $name 
-
         $params = @{}
-        if ($PSBoundParameters.ContainsKey('Location')){
-            $params.Add('Location', $Location)
-        }
-        if ($PSBoundParameters.ContainsKey('SubscriptionId')){
+        if ($PSDefaultParameterValues.ContainsKey('SubscriptionId')){
             $params.Add('SubscriptionId', $SubscriptionId)
         }
-        
-
+        Write-Host "NAME : $name"
+        Write-Host "params : $($params.Values)"
+        $ipObject = Get-AzsGalleryItem -Name $name @params
         Remove-AzsGalleryItem -InputObject $ipObject @params
     }
 }

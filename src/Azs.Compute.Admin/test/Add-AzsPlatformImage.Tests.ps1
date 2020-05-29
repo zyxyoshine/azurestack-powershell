@@ -88,7 +88,7 @@ Describe 'Get-AzsPlatformImage' {
             break
         }
     }
-
+<# A lot of recordings are missing from this test
     It "TestGetAllPlatformImages" -Skip:$('TestGetAllPlatformImages' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllPlatformImages'
 
@@ -99,6 +99,8 @@ Describe 'Get-AzsPlatformImage' {
             AssertSame -Expected $platformImage -Found $result
         }
     }
+#>
+
 <# TODO: UnComment once the test recordings are added for these tests.
 
     It "TestCreatePlatformImage" -Skip:$('TestCreatePlatformImage' -in $global:SkippedTests) {

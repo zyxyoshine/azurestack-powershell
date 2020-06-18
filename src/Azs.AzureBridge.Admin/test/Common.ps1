@@ -1,7 +1,4 @@
 $global:SkippedTests = @(
-    "TestDownloadAzsAzureBridgeProductPipeline",
-    "TestRemoveAzsAzureBridgeDownloadedProduct",
-    "TestRemoveAzsAzureBridgeDownloadedProductPipeline"
 )
 
 $global:Provider = "Microsoft.AzureBridge.Admin"

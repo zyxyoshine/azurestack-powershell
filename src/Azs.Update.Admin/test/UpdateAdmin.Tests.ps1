@@ -43,7 +43,13 @@ param(
     [bool]$UseInstalled = $false
 )
 
+Write-Host "ResourceGroup: $($env.ResourceGroup)"
+Write-Host "Location: $($env.Location)"
+Write-Host "envFile: ${envFile}"
 . (Join-Path $PSScriptRoot 'loadEnvJson.ps1')
+Write-Host "ResourceGroup: $($env.ResourceGroup)"
+Write-Host "Location: $($env.Location)"
+Write-Host "envFile: ${envFile}"
 
 $Global:UseInstalled = $UseInstalled
 $global:RunRaw = $RunRaw

@@ -59,171 +59,167 @@ while(-not $mockingPath) {
 }
 . ($mockingPath | Select-Object -First 1).FullName
 
-InModuleScope Azs.Update.Admin {
-    Describe "UpdateAdminTests" -Tags @('UpdateAdminTests', 'Azs.Update.Admin') {
+Describe "UpdateAdmin.Tests" -Tags @('UpdateAdminTests', 'Azs.Update.Admin') {
+    BeforeEach {
+        function ValidateUpdateLocation {
+            param(
+                [Parameter(Mandatory = $true)]
+                $location
+            )
 
-        BeforeEach {
-
-            function ValidateUpdateLocation {
-                param(
-                    [Parameter(Mandatory = $true)]
-                    $location
-                )
-
-                $location                   | Should Not Be $null
-                $location.Id                | Should Not Be $null
-                $location.CurrentOemVersion | Should Not Be $null
-                $location.CurrentVersion    | Should Not Be $null
-                $location.State             | Should Not Be $null
-            }
-
-            function ValidateSameUpdateLocation {
-                param(
-                    [Parameter(Mandatory = $true)]
-                    $location1,
-                    [Parameter(Mandatory = $true)]
-                    $location2
-                )
-
-                $location1                   | Should Not Be $null
-                $location2                   | Should Not Be $null
-                $location1.Id                | Should Be $location2.Id
-                $location1.CurrentOemVersion | Should Be $location2.CurrentOemVersion
-                $location1.CurrentVersion    | Should Be $location2.CurrentVersion
-                $location1.State             | Should Be $location2.State
-            }
-
-            function ValidateUpdate {
-                param(
-                    [Parameter(Mandatory = $true)]
-                    $update
-                )
-
-                $update                       | Should Not Be $null
-                $update.Id                    | Should Not Be $null
-                $update.Description           | Should Not Be $null
-                $update.KbLink                | Should Not Be $null
-                $update.MinVersionRequired    | Should Not Be $null
-                $update.PackagePath           | Should Be $null
-                $update.PackageSizeInMb       | Should Not Be $null
-                $update.Publisher             | Should Not Be $null
-                $update.State                 | Should Not Be $null
-                $update.Name                  | Should Not Be $null
-                $update.Version               | Should Not Be $null
-            }
-
-            function ValidateSameUpdate {
-                param(
-                    [Parameter(Mandatory = $true)]
-                    $update1,
-                    [Parameter(Mandatory = $true)]
-                    $update2
-                )
-
-                $update1                      | Should Not Be $null
-                $update2                      | Should Not Be $null
-                $update1.Id                   | Should Be $update2.Id
-                $update1.Description          | Should Be $update2.Description
-                $update1.KbLink               | Should Be $update2.KbLink
-                $update1.MinVersionRequired   | Should Be $update2.MinVersionRequired
-                $update1.PackagePath          | Should Be $update2.PackagePath
-                $update1.PackageSizeInMb      | Should Be $update2.PackageSizeInMb
-                $update1.Publisher            | Should Be $update2.Publisher
-                $update1.State                | Should Be $update2.State
-                $update1.Name                 | Should Be $update2.Name
-                $update1.Version              | Should Be $update2.Version
-            }
-
-            function ValidateUpdateRun {
-                param(
-                    [Parameter(Mandatory = $true)]
-                    $run
-                )
-
-                $run                          | Should Not Be $null
-                $run.Id                       | Should Not Be $null
-                $run.Duration                 | Should Not Be $null
-                $run.State                    | Should Not Be $null
-                $run.TimeStarted              | Should Not Be $null
-                $run.Location                 | Should Not Be $null
-            }
-
-            function ValidateSameUpdateRun {
-                param(
-                    [Parameter(Mandatory = $true)]
-                    $run1,
-                    [Parameter(Mandatory = $true)]
-                    $run2
-                )
-
-                $run1                          | Should Not Be $null
-                $run2                          | Should Not Be $null
-                $run1.Id                       | Should Be $run2.Id
-                $run1.Duration                 | Should Be $run2.Duration
-                $run1.State                    | Should Be $run2.State
-                $run1.TimeStarted              | Should Be $run2.TimeStarted
-                $run1.Location                 | Should Be $run2.Location
-            }
+            $location                   | Should Not Be $null
+            $location.Id                | Should Not Be $null
+            $location.CurrentOemVersion | Should Not Be $null
+            $location.CurrentVersion    | Should Not Be $null
+            $location.State             | Should Not Be $null
         }
 
-        AfterEach {
-            $global:Client = $null
+        function ValidateSameUpdateLocation {
+            param(
+                [Parameter(Mandatory = $true)]
+                $location1,
+                [Parameter(Mandatory = $true)]
+                $location2
+            )
+
+            $location1                   | Should Not Be $null
+            $location2                   | Should Not Be $null
+            $location1.Id                | Should Be $location2.Id
+            $location1.CurrentOemVersion | Should Be $location2.CurrentOemVersion
+            $location1.CurrentVersion    | Should Be $location2.CurrentVersion
+            $location1.State             | Should Be $location2.State
         }
 
-        It "TestGetUpdateLocation" -Skip:$('TestGetUpdateLocation' -in $global:SkippedTests) {
-            $global:TestName = "TestGetUpdateLocation"
+        function ValidateUpdate {
+            param(
+                [Parameter(Mandatory = $true)]
+                $update
+            )
 
-            $list = Get-AzsUpdateLocation
-            $list | Should not be $null
-            foreach ($location in $list) {
-                $location1 = Get-AzsUpdateLocation
-                ValidateSameUpdateLocation $location $location1
+            $update                       | Should Not Be $null
+            $update.Id                    | Should Not Be $null
+            $update.Description           | Should Not Be $null
+            $update.KbLink                | Should Not Be $null
+            $update.MinVersionRequired    | Should Not Be $null
+            $update.PackagePath           | Should Be $null
+            $update.PackageSizeInMb       | Should Not Be $null
+            $update.Publisher             | Should Not Be $null
+            $update.State                 | Should Not Be $null
+            $update.Name                  | Should Not Be $null
+            $update.Version               | Should Not Be $null
+        }
+
+        function ValidateSameUpdate {
+            param(
+                [Parameter(Mandatory = $true)]
+                $update1,
+                [Parameter(Mandatory = $true)]
+                $update2
+            )
+
+            $update1                      | Should Not Be $null
+            $update2                      | Should Not Be $null
+            $update1.Id                   | Should Be $update2.Id
+            $update1.Description          | Should Be $update2.Description
+            $update1.KbLink               | Should Be $update2.KbLink
+            $update1.MinVersionRequired   | Should Be $update2.MinVersionRequired
+            $update1.PackagePath          | Should Be $update2.PackagePath
+            $update1.PackageSizeInMb      | Should Be $update2.PackageSizeInMb
+            $update1.Publisher            | Should Be $update2.Publisher
+            $update1.State                | Should Be $update2.State
+            $update1.Name                 | Should Be $update2.Name
+            $update1.Version              | Should Be $update2.Version
+        }
+
+        function ValidateUpdateRun {
+            param(
+                [Parameter(Mandatory = $true)]
+                $run
+            )
+
+            $run                          | Should Not Be $null
+            $run.Id                       | Should Not Be $null
+            $run.Duration                 | Should Not Be $null
+            $run.State                    | Should Not Be $null
+            $run.TimeStarted              | Should Not Be $null
+            $run.Location                 | Should Not Be $null
+        }
+
+        function ValidateSameUpdateRun {
+            param(
+                [Parameter(Mandatory = $true)]
+                $run1,
+                [Parameter(Mandatory = $true)]
+                $run2
+            )
+
+            $run1                          | Should Not Be $null
+            $run2                          | Should Not Be $null
+            $run1.Id                       | Should Be $run2.Id
+            $run1.Duration                 | Should Be $run2.Duration
+            $run1.State                    | Should Be $run2.State
+            $run1.TimeStarted              | Should Be $run2.TimeStarted
+            $run1.Location                 | Should Be $run2.Location
+        }
+    }
+
+    AfterEach {
+        $global:Client = $null
+    }
+
+    It "TestGetUpdateLocation" -Skip:$('TestGetUpdateLocation' -in $global:SkippedTests) {
+        $global:TestName = "TestGetUpdateLocation"
+
+        $list = Get-AzsUpdateLocation
+        $list | Should not be $null
+        foreach ($location in $list) {
+            $location1 = Get-AzsUpdateLocation
+            ValidateSameUpdateLocation $location $location1
+        }
+    }
+
+    It "TestListUpdates" -Skip:$('TestListUpdates' -in $global:SkippedTests) {
+        $global:TestName = "TestListUpdates"
+
+        $list = Get-AzsUpdate
+        $list | Should Not Be $null
+        foreach ($update in $list) {
+            ValidateUpdate $update
+        }
+    }
+
+    It "TestGetUpdate" -Skip:$('TestGetUpdate' -in $global:SkippedTests) {
+        $global:TestName = "TestGetUpdate"
+
+        $list = Get-AzsUpdate
+        foreach ($update in $list) {
+            $update1 = Get-AzsUpdate -Name $update.Name
+            ValidateSameUpdate $update $update1
+        }
+    }
+
+    It "TestListUpdateRuns" -Skip:$('TestListUpdateRuns' -in $global:SkippedTests) {
+        $global:TestName = "TestListUpdateRuns"
+
+        $list = Get-AzsUpdate
+        foreach ($update in $list) {
+            $runList = Get-AzsUpdateRun -UpdateName $update.Name
+            foreach ($run in $runList) {
+                ValidateUpdateRun $run
             }
         }
+    }
 
-        It "TestListUpdates" -Skip:$('TestListUpdates' -in $global:SkippedTests) {
-            $global:TestName = "TestListUpdates"
+    it "TestGetUpdateRun" -Skip:$('TestGetUpdateRun' -in $global:SkippedTests) {
+        $global:TestName = "TestGetUpdateRun"
 
-            $list = Get-AzsUpdate
-            $list | Should Not Be $null
-            foreach ($update in $list) {
-                ValidateUpdate $update
-            }
-        }
-
-        It "TestGetUpdate" -Skip:$('TestGetUpdate' -in $global:SkippedTests) {
-            $global:TestName = "TestGetUpdate"
-
-            $list = Get-AzsUpdate
-            foreach ($update in $list) {
-                $update1 = Get-AzsUpdate -Name $update.Name
-                ValidateSameUpdate $update $update1
-            }
-        }
-
-        It "TestListUpdateRuns" -Skip:$('TestListUpdateRuns' -in $global:SkippedTests) {
-            $global:TestName = "TestListUpdateRuns"
-
-            $list = Get-AzsUpdate
-            foreach ($update in $list) {
-                $runList = Get-AzsUpdateRun -UpdateName $update.Name
-                foreach ($run in $runList) {
-                    ValidateUpdateRun $run
-                }
-            }
-        }
-
-        it "TestGetUpdateRun" -Skip:$('TestGetUpdateRun' -in $global:SkippedTests) {
-            $global:TestName = "TestGetUpdateRun"
-
-            $list = Get-AzsUpdate
-            $list | Should not be $null
-            foreach ($update in $list) {
-                $runList = Get-AzsUpdateRun -UpdateName $update.Name
-                foreach ($run in $runList) {
-                    $run1 = Get-AzsUpdateRun -Name $run.Name -UpdateName $update.Name
-                    ValidateSameUpdateRun $run $run1
-                }
+        $list = Get-AzsUpdate
+        $list | Should not be $null
+        foreach ($update in $list) {
+            $runList = Get-AzsUpdateRun -UpdateName $update.Name
+            foreach ($run in $runList) {
+                $run1 = Get-AzsUpdateRun -Name $run.Name -UpdateName $update.Name
+                ValidateSameUpdateRun $run $run1
             }
         }
     }

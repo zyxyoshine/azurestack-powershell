@@ -1,8 +1,5 @@
-$loadEnvPath = Join-Path $PSScriptRoot 'loadEnv.ps1'
-if (-Not (Test-Path -Path $loadEnvPath)) {
-    $loadEnvPath = Join-Path $PSScriptRoot '..\loadEnv.ps1'
-}
-. ($loadEnvPath)
+. (Join-Path $PSScriptRoot 'loadEnvJson.ps1')
+
 $TestRecordingFile = Join-Path $PSScriptRoot 'Get-AzsInfrastructureShare.Recording.json'
 $currentPath = $PSScriptRoot
 while(-not $mockingPath) {
@@ -13,7 +10,7 @@ while(-not $mockingPath) {
 
 Describe 'Get-AzsInfrastructureShare' {
 
-    . $PSScriptRoot\StorageCommon.ps1
+    . $PSScriptRoot\Common.ps1
 
     BeforeEach {
 

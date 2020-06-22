@@ -82,7 +82,7 @@ Describe 'Get-AzsEdgeGateway' {
             $gateways = Get-AzsEdgeGateway  
             $gateways | Should not be $null
             foreach ($gateway in $gateways) {
-                $retrieved = Get-AzsEdgeGateway  -Location $Location -Name $gateway.Name
+                $retrieved = Get-AzsEdgeGateway   -Name $gateway.Name
                 AssertEdgeGatewaysAreSame -Expected $gateway -Found $retrieved
                 break
             }
@@ -91,9 +91,9 @@ Describe 'Get-AzsEdgeGateway' {
         It "TestGetAllEdgeGateways" -Skip:$('TestGetAllEdgeGateways' -in $global:SkippedTests) {
             $global:TestName = 'TestGetAllEdgeGateways'
 
-            $gateways = Get-AzsEdgeGateway  -Location $Location
+            $gateways = Get-AzsEdgeGateway  
             foreach ($gateway in $gateways) {
-                $retrieved = Get-AzsEdgeGateway  -Location $Location -Name $gateway.Name
+                $retrieved = Get-AzsEdgeGateway   -Name $gateway.Name
                 AssertEdgeGatewaysAreSame -Expected $gateway -Found $retrieved
             }
         }

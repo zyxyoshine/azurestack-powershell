@@ -78,7 +78,7 @@ Describe 'Get-AzsMacAddressPool' {
 
     it "TestListMacAddressPools" -Skip:$('TestListMacAddressPools' -in $global:SkippedTests) {
         $global:TestName = 'TestListMacAddressPools'
-        $macAddressPools = Get-AzsMacAddressPool  -Location $Location
+        $macAddressPools = Get-AzsMacAddressPool  
         $macAddressPools | Should Not Be $null
         foreach ($macAddressPool in $macAddressPools) {
             ValidateMacAddressPool -MacAddressPool $macAddressPool
@@ -89,9 +89,9 @@ Describe 'Get-AzsMacAddressPool' {
     it "TestGetMacAddressPool" -Skip:$('TestGetMacAddressPool' -in $global:SkippedTests) {
         $global:TestName = 'TestGetMacAddressPool'
 
-        $macAddressPools = Get-AzsMacAddressPool  -Location $Location
+        $macAddressPools = Get-AzsMacAddressPool  
         foreach ($macAddressPool in $macAddressPools) {
-            $retrieved = Get-AzsMacAddressPool  -Location $Location -Name $macAddressPool.Name
+            $retrieved = Get-AzsMacAddressPool   -Name $macAddressPool.Name
             AssertMacAddressPoolsAreSame -Expected $macAddressPool -Found $retrieved
             break
         }
@@ -100,9 +100,9 @@ Describe 'Get-AzsMacAddressPool' {
     it "TestGetAllMacAddressPools" -Skip:$('TestGetAllMacAddressPools' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllMacAddressPools'
 
-        $macAddressPools = Get-AzsMacAddressPool  -Location $Location
+        $macAddressPools = Get-AzsMacAddressPool  
         foreach ($macAddressPool in $macAddressPools) {
-            $retrieved = Get-AzsMacAddressPool  -Location $Location -Name $macAddressPool.Name
+            $retrieved = Get-AzsMacAddressPool   -Name $macAddressPool.Name
             AssertMacAddressPoolsAreSame -Expected $macAddressPool -Found $retrieved
         }
     }

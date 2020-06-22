@@ -81,7 +81,7 @@ Describe 'Get-AzsLogicalNetwork' {
 
     it "TestListLogicalNetworks" -Skip:$('TestListLogicalNetworks' -in $global:SkippedTests) {
         $global:TestName = 'TestListLogicalNetworks'
-        $logicalNetworks = Get-AzsLogicalNetwork  -Location $Location
+        $logicalNetworks = Get-AzsLogicalNetwork  
         $logicalNetworks | Should Not Be $null
         foreach ($logicalNetwork in $logicalNetworks) {
             ValidateLogicalNetwork -LogicalNetwork $logicalNetwork
@@ -92,9 +92,9 @@ Describe 'Get-AzsLogicalNetwork' {
     it "TestGetLogicalNetwork" -Skip:$('TestGetLogicalNetwork' -in $global:SkippedTests) {
         $global:TestName = 'TestGetLogicalNetwork'
 
-        $logicalNetworks = Get-AzsLogicalNetwork  -Location $Location
+        $logicalNetworks = Get-AzsLogicalNetwork  
         foreach ($logicalNetwork in $logicalNetworks) {
-            $retrieved = Get-AzsLogicalNetwork  -Location $Location -Name $logicalNetwork.Name
+            $retrieved = Get-AzsLogicalNetwork   -Name $logicalNetwork.Name
             AssertLogicalNetworksAreSame -Expected $logicalNetwork -Found $retrieved
             break
         }
@@ -103,9 +103,9 @@ Describe 'Get-AzsLogicalNetwork' {
     It "TestGetAllLogicalNetworks" -Skip:$('TestGetAllLogicalNetworks' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllLogicalNetworks'
 
-        $logicalNetworks = Get-AzsLogicalNetwork  -Location $Location
+        $logicalNetworks = Get-AzsLogicalNetwork  
         foreach ($logicalNetwork in $logicalNetworks) {
-            $retrieved = Get-AzsLogicalNetwork  -Location $Location -Name $logicalNetwork.Name
+            $retrieved = Get-AzsLogicalNetwork   -Name $logicalNetwork.Name
             AssertLogicalNetworksAreSame -Expected $logicalNetwork -Found $retrieved
         }
     }

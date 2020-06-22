@@ -77,9 +77,9 @@ Describe 'Get-AzsEdgeGatewayPool' {
         It "TestGetEdgeGatewayPool" -Skip:$('TestGetEdgeGatewayPool' -in $global:SkippedTests) {
             $global:TestName = 'TestGetEdgeGatewayPool'
 
-            $edgeGatewayPools = Get-AzsEdgeGatewayPool  -Location $Location
+            $edgeGatewayPools = Get-AzsEdgeGatewayPool  
             foreach ($edgeGatewayPool in $edgeGatewayPools) {
-                $retrieved = Get-AzsEdgeGatewayPool  -Location $Location -Name $edgeGatewayPool.Name
+                $retrieved = Get-AzsEdgeGatewayPool   -Name $edgeGatewayPool.Name
                 AssertEdgeGatewayPoolsAreSame -Expected $edgeGatewayPool -Found $retrieved
                 break
             }
@@ -88,9 +88,9 @@ Describe 'Get-AzsEdgeGatewayPool' {
         It "TestGetAllEdgeGatewayPools" -Skip:$('TestGetAllEdgeGatewayPools' -in $global:SkippedTests) {
             $global:TestName = 'TestGetAllEdgeGatewayPools'
 
-            $edgeGatewayPools = Get-AzsEdgeGatewayPool  -Location $Location
+            $edgeGatewayPools = Get-AzsEdgeGatewayPool  
             foreach ($edgeGatewayPool in $edgeGatewayPools) {
-                $retrieved = Get-AzsEdgeGatewayPool  -Location $Location -Name $edgeGatewayPool.Name
+                $retrieved = Get-AzsEdgeGatewayPool   -Name $edgeGatewayPool.Name
                 AssertEdgeGatewayPoolsAreSame -Expected $edgeGatewayPool -Found $retrieved
             }
         }

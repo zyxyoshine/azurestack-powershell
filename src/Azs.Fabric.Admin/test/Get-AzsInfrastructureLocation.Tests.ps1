@@ -60,7 +60,7 @@ Describe 'Get-AzsInfrastructureLocation' {
 
         It "TestListFabricLocations" -Skip:$('TestListFabricLocations' -in $global:SkippedTests) {
             $global:TestName = 'TestListFabricLocations'
-            $fabricLocations = Get-AzsInfrastructureLocation -ResourceGroupName $global:ResourceGroupName
+            $fabricLocations = Get-AzsInfrastructureLocation 
             $fabricLocations | Should Not Be $null
             foreach ($fabricLocation in $fabricLocations) {
                 ValidateFabricLocation -FabricLocation $fabricLocation
@@ -70,9 +70,9 @@ Describe 'Get-AzsInfrastructureLocation' {
         It "TestGetFabricLocation" -Skip:$('TestGetFabricLocation' -in $global:SkippedTests) {
             $global:TestName = 'TestGetFabricLocation'
 
-            $fabricLocations = Get-AzsInfrastructureLocation -ResourceGroupName $global:ResourceGroupName
+            $fabricLocations = Get-AzsInfrastructureLocation 
             foreach ($fabricLocation in $fabricLocations) {
-                $retrieved = Get-AzsInfrastructureLocation -ResourceGroupName $global:ResourceGroupName
+                $retrieved = Get-AzsInfrastructureLocation 
                 AssertFabricLocationsAreSame -Expected $fabricLocation -Found $retrieved
                 break
             }
@@ -81,9 +81,9 @@ Describe 'Get-AzsInfrastructureLocation' {
         It "TestGetAllFabricLocations" -Skip:$('TestGetAllFabricLocations' -in $global:SkippedTests) {
             $global:TestName = 'TestGetAllFabricLocations'
 
-            $fabricLocations = Get-AzsInfrastructureLocation -ResourceGroupName $global:ResourceGroupName
+            $fabricLocations = Get-AzsInfrastructureLocation 
             foreach ($fabricLocation in $fabricLocations) {
-                $retrieved = Get-AzsInfrastructureLocation -ResourceGroupName $global:ResourceGroupName
+                $retrieved = Get-AzsInfrastructureLocation 
                 AssertFabricLocationsAreSame -Expected $fabricLocation -Found $retrieved
             }
         }

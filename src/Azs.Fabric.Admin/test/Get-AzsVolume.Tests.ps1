@@ -80,11 +80,11 @@ Describe 'Get-AzsVolume' {
     It "TestListVolumes" -Skip:$('TestListVolumes' -in $global:SkippedTests) {
         $global:TestName = 'TestListVolumes'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
-            $storageSubSystems = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name
+            $storageSubSystems = Get-AzsStorageSubSystem   -ScaleUnit $scaleUnit.Name
             foreach ($storageSubSystem in $storageSubSystems) {
-                $volumes = Get-AzsVolume -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name
+                $volumes = Get-AzsVolume   -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name
                 $volumes | Should Not Be $null
                 foreach ($volume in $volumes) {
                     ValidateVolume $volume
@@ -96,13 +96,13 @@ Describe 'Get-AzsVolume' {
     It "TestGetVolume" -Skip:$('TestGetVolume' -in $global:SkippedTests) {
         $global:TestName = 'TestGetVolume'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
-            $storageSubSystems = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name
+            $storageSubSystems = Get-AzsStorageSubSystem   -ScaleUnit $scaleUnit.Name
             foreach ($storageSubSystem in $storageSubSystems) {
-                $volumes = Get-AzsVolume -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name
+                $volumes = Get-AzsVolume   -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name
                 foreach ($volume in $volumes) {
-                    $retrieved = Get-AzsVolume -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Name $volume.Name
+                    $retrieved = Get-AzsVolume   -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Name $volume.Name
                     AssertVolumesAreSame -Expected $volume -Found $retrieved
                     break
                 }
@@ -115,13 +115,13 @@ Describe 'Get-AzsVolume' {
     It "TestGetAllVolumes" -Skip:$('TestGetAllVolumes' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllVolumes'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
-            $storageSubSystems = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name
+            $storageSubSystems = Get-AzsStorageSubSystem   -ScaleUnit $scaleUnit.Name
             foreach ($storageSubSystem in $storageSubSystems) {
-                $volumes = Get-AzsVolume -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name
+                $volumes = Get-AzsVolume   -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name
                 foreach ($volume in $volumes) {
-                    $retrieved = Get-AzsVolume -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Name $volume.Name
+                    $retrieved = Get-AzsVolume   -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Name $volume.Name
                     AssertVolumesAreSame -Expected $volume -Found $retrieved
                 }
             }
@@ -131,12 +131,12 @@ Describe 'Get-AzsVolume' {
     It "TestGetInvaildVolume" -Skip:$('TestGetInvaildVolume' -in $global:SkippedTests) {
         $global:TestName = 'TestGetInvaildVolume'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
-            $storageSubSystems = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name
+            $storageSubSystems = Get-AzsStorageSubSystem   -ScaleUnit $scaleUnit.Name
             foreach ($storageSubSystem in $storageSubSystems) {
                 $invaildVolumeName = "invaildvolumename"
-                $retrieved = Get-AzsVolume -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Name $invaildVolumeName
+                $retrieved = Get-AzsVolume   -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Name $invaildVolumeName
                 $retrieved | Should Be $null
                 break
             }
@@ -147,11 +147,11 @@ Describe 'Get-AzsVolume' {
     It "TestGetVolumeByInputObject" -Skip:$('TestGetVolumeByInputObject' -in $global:SkippedTests) {
         $global:TestName = 'TestGetVolumeByInputObject'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
-            $storageSubSystems = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name
+            $storageSubSystems = Get-AzsStorageSubSystem   -ScaleUnit $scaleUnit.Name
             foreach ($storageSubSystem in $storageSubSystems) {
-                $volume = Get-AzsVolume -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Top 1
+                $volume = Get-AzsVolume   -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Top 1
                 $retrieved = Get-AzsVolume -InputObject $volume
                 AssertVolumesAreSame -Expected $volume -Found $retrieved
             }

@@ -75,7 +75,7 @@ Describe 'Get-AzsSlbMuxInstance' {
 
     it "TestListSlbMuxInstances" -Skip:$('TestListSlbMuxInstances' -in $global:SkippedTests) {
         $global:TestName = 'TestListSlbMuxInstances'
-        $SlbMuxInstances = Get-AzsSlbMuxInstance -ResourceGroupName $global:ResourceGroupName -Location $Location
+        $SlbMuxInstances = Get-AzsSlbMuxInstance  -Location $Location
         $SlbMuxInstances | Should Not Be $null
         foreach ($SlbMuxInstance in $SlbMuxInstances) {
             ValidateSlbMuxInstance -SlbMuxInstance $SlbMuxInstance
@@ -86,9 +86,9 @@ Describe 'Get-AzsSlbMuxInstance' {
     it "TestGetSlbMuxInstance" -Skip:$('TestGetSlbMuxInstance' -in $global:SkippedTests) {
         $global:TestName = 'TestGetSlbMuxInstance'
 
-        $SlbMuxInstances = Get-AzsSlbMuxInstance -ResourceGroupName $global:ResourceGroupName -Location $Location
+        $SlbMuxInstances = Get-AzsSlbMuxInstance  -Location $Location
         foreach ($SlbMuxInstance in $SlbMuxInstances) {
-            $retrieved = Get-AzsSlbMuxInstance -ResourceGroupName $global:ResourceGroupName -Location $Location -Name $SlbMuxInstance.Name
+            $retrieved = Get-AzsSlbMuxInstance  -Location $Location -Name $SlbMuxInstance.Name
             AssertSlbMuxInstancesAreSame -Expected $SlbMuxInstance -Found $retrieved
             break
         }
@@ -97,9 +97,9 @@ Describe 'Get-AzsSlbMuxInstance' {
     it "TestGetAllSlbMuxInstances" -Skip:$('TestGetAllSlbMuxInstances' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllSlbMuxInstances'
 
-        $SlbMuxInstances = Get-AzsSlbMuxInstance -ResourceGroupName $global:ResourceGroupName -Location $Location
+        $SlbMuxInstances = Get-AzsSlbMuxInstance  -Location $Location
         foreach ($SlbMuxInstance in $SlbMuxInstances) {
-            $retrieved = Get-AzsSlbMuxInstance -ResourceGroupName $global:ResourceGroupName -Location $Location -Name $SlbMuxInstance.Name
+            $retrieved = Get-AzsSlbMuxInstance  -Location $Location -Name $SlbMuxInstance.Name
             AssertSlbMuxInstancesAreSame -Expected $SlbMuxInstance -Found $retrieved
         }
     }

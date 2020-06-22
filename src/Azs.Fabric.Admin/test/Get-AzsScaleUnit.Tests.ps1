@@ -83,7 +83,7 @@ Describe 'Get-AzsScaleUnit' {
 
     it "TestListScaleUnits" -Skip:$('TestListScaleUnits' -in $global:SkippedTests) {
         $global:TestName = 'TestListScaleUnits'
-        $ScaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $Location
+        $ScaleUnits = Get-AzsScaleUnit  -Location $Location
         $ScaleUnits | Should Not Be $null
         foreach ($ScaleUnit in $ScaleUnits) {
             ValidateScaleUnit -ScaleUnit $ScaleUnit
@@ -94,9 +94,9 @@ Describe 'Get-AzsScaleUnit' {
     it "TestGetScaleUnit" -Skip:$('TestGetScaleUnit' -in $global:SkippedTests) {
         $global:TestName = 'TestGetScaleUnit'
 
-        $ScaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $Location
+        $ScaleUnits = Get-AzsScaleUnit  -Location $Location
         foreach ($ScaleUnit in $ScaleUnits) {
-            $retrieved = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $Location -Name $ScaleUnit.Name
+            $retrieved = Get-AzsScaleUnit  -Location $Location -Name $ScaleUnit.Name
             AssertScaleUnitsAreSame -Expected $ScaleUnit -Found $retrieved
             break
         }
@@ -105,9 +105,9 @@ Describe 'Get-AzsScaleUnit' {
     it "TestGetAllScaleUnits" -Skip:$('TestGetAllScaleUnits' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllScaleUnits'
 
-        $ScaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $Location
+        $ScaleUnits = Get-AzsScaleUnit  -Location $Location
         foreach ($ScaleUnit in $ScaleUnits) {
-            $retrieved = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $Location -Name $ScaleUnit.Name
+            $retrieved = Get-AzsScaleUnit  -Location $Location -Name $ScaleUnit.Name
             AssertScaleUnitsAreSame -Expected $ScaleUnit -Found $retrieved
         }
     }

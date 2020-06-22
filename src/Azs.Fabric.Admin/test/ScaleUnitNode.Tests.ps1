@@ -78,7 +78,7 @@ Describe 'Repair-AzsScaleUnitNode' {
     It "TestListScaleUnitNodes" -Skip:$('TestListScaleUnitNodes' -in $global:SkippedTests) {
         $global:TestName = 'TestListScaleUnitNodes'
 
-        $ScaleUnitNodes = Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $ScaleUnitNodes = Get-AzsScaleUnitNode  
         $ScaleUnitNodes | Should Not Be $null
         foreach ($ScaleUnitNode in $ScaleUnitNodes) {
             ValidateScaleUnitNode -ScaleUnitNode $ScaleUnitNode
@@ -89,9 +89,9 @@ Describe 'Repair-AzsScaleUnitNode' {
     It "TestGetScaleUnitNode" -Skip:$('TestGetScaleUnitNode' -in $global:SkippedTests) {
         $global:TestName = 'TestGetScaleUnitNode'
 
-        $ScaleUnitNodes = Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $ScaleUnitNodes = Get-AzsScaleUnitNode  
         foreach ($ScaleUnitNode in $ScaleUnitNodes) {
-            $retrieved = Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $ScaleUnitNode.Name
+            $retrieved = Get-AzsScaleUnitNode   -Name $ScaleUnitNode.Name
             AssertScaleUnitNodesAreSame -Expected $ScaleUnitNode -Found $retrieved
             break
         }
@@ -100,9 +100,9 @@ Describe 'Repair-AzsScaleUnitNode' {
     It "TestGetAllScaleUnitNodes" -Skip:$('TestGetAllScaleUnitNodes' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllScaleUnitNodes'
 
-        $ScaleUnitNodes = Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $ScaleUnitNodes = Get-AzsScaleUnitNode  
         foreach ($ScaleUnitNode in $ScaleUnitNodes) {
-            $retrieved = Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $ScaleUnitNode.Name
+            $retrieved = Get-AzsScaleUnitNode   -Name $ScaleUnitNode.Name
             AssertScaleUnitNodesAreSame -Expected $ScaleUnitNode -Found $retrieved
         }
     }
@@ -110,11 +110,11 @@ Describe 'Repair-AzsScaleUnitNode' {
     It "TestStartStopMaintenanceModeUnitNode" -Skip:$('TestStartStopMaintenanceModeUnitNode' -in $global:SkippedTests) {
         $global:TestName = 'TestStartStopMaintenanceModeUnitNode'
 
-        $ScaleUnitNodes = Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $ScaleUnitNodes = Get-AzsScaleUnitNode  
         foreach ($ScaleUnitNode in $ScaleUnitNodes) {
             {
-                Disable-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $ScaleUnitNode.Name -Force -ErrorAction Stop
-                Enable-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $ScaleUnitNode.Name -Force -ErrorAction Stop
+                Disable-AzsScaleUnitNode   -Name $ScaleUnitNode.Name -Force -ErrorAction Stop
+                Enable-AzsScaleUnitNode   -Name $ScaleUnitNode.Name -Force -ErrorAction Stop
             } | Should Throw
             break
         }
@@ -125,13 +125,13 @@ Describe 'Repair-AzsScaleUnitNode' {
     It "TestGetScaleUnitNodeOnTenantVM" -Skip:$('TestGetScaleUnitNodeOnTenantVM' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllScaleUnitNodes'
 
-        { Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $global:TenantVMName -ErrorAction Stop } | Should Throw
+        { Get-AzsScaleUnitNode   -Name $global:TenantVMName -ErrorAction Stop } | Should Throw
     }
 
     It "TestPowerOnOnTenantVM" -Skip:$('TestPowerOnOnTenantVM' -in $global:SkippedTests) {
         $global:TestName = 'TestPowerOnOnTenantVM'
         {
-            $operationStatus = Start-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $global:TenantVMName -Force -ErrorAction Stop
+            $operationStatus = Start-AzsScaleUnitNode   -Name $global:TenantVMName -Force -ErrorAction Stop
             $operationStatus.ProvisioningState | Should not be ""
             $operationStatus.ProvisioningState | Should be "Failure"
         } | Should Throw
@@ -141,7 +141,7 @@ Describe 'Repair-AzsScaleUnitNode' {
         $global:TestName = 'TestPowerOffOnTenantVM'
 
         {
-            $operationStatus = Stop-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $global:TenantVMName -Force -ErrorAction Stop
+            $operationStatus = Stop-AzsScaleUnitNode   -Name $global:TenantVMName -Force -ErrorAction Stop
             $operationStatus.ProvisioningState | Should not be ""
             $operationStatus.ProvisioningState | Should be "Failure"
         } | Should Throw
@@ -150,7 +150,7 @@ Describe 'Repair-AzsScaleUnitNode' {
     It "TestStartMaintenanceModeOnTenantVM" -Skip:$('TestStartMaintenanceModeOnTenantVM' -in $global:SkippedTests) {
         $global:TestName = 'TestStartMaintenanceModeOnTenantVM'
         {
-            $operationStatus = Disable-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $TenantVMName -Force -ErrorAction Stop
+            $operationStatus = Disable-AzsScaleUnitNode   -Name $TenantVMName -Force -ErrorAction Stop
             $operationStatus.ProvisioningState | Should not be ""
             $operationStatus.ProvisioningState | Should be "Failure"
         } | Should Throw
@@ -162,9 +162,9 @@ Describe 'Repair-AzsScaleUnitNode' {
     It "TestPowerOnScaleUnitNode" -Skip:$('TestPowerOnScaleUnitNode' -in $global:SkippedTests) {
         $global:TestName = 'TestPowerOnScaleUnitNode'
 
-        $ScaleUnitNodes = Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $ScaleUnitNodes = Get-AzsScaleUnitNode  
         foreach ($ScaleUnitNode in $ScaleUnitNodes) {
-            Start-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $ScaleUnitNode.Name -Force
+            Start-AzsScaleUnitNode   -Name $ScaleUnitNode.Name -Force
             $retrieved | Should Be $null
             break
         }
@@ -173,9 +173,9 @@ Describe 'Repair-AzsScaleUnitNode' {
     It "TestPowerOffScaleUnitNode" -Skip:$('TestPowerOffScaleUnitNode' -in $global:SkippedTests) {
         $global:TestName = 'TestPowerOffScaleUnitNode'
 
-        $ScaleUnitNodes = Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $ScaleUnitNodes = Get-AzsScaleUnitNode  
         foreach ($ScaleUnitNode in $ScaleUnitNodes) {
-            $retrieved = Stop-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $ScaleUnitNode.Name -Force
+            $retrieved = Stop-AzsScaleUnitNode   -Name $ScaleUnitNode.Name -Force
             $retrieved | Should Be $null
             break
         }

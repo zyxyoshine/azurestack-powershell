@@ -69,7 +69,7 @@ Describe 'Get-AzsEdgeGateway' {
         It "TestListEdgeGateways" -Skip:$('TestListEdgeGateways' -in $global:SkippedTests) {
             $global:TestName = 'TestListEdgeGateways'
 
-            $gateways = Get-AzsEdgeGateway -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+            $gateways = Get-AzsEdgeGateway  
             $gateways | Should Not Be $null
             foreach ($gateway in $gateways) {
                 ValidateEdgeGateway -EdgeGateway $gateway
@@ -79,10 +79,10 @@ Describe 'Get-AzsEdgeGateway' {
         It "TestGetEdgeGateway" -Skip:$('TestGetEdgeGateway' -in $global:SkippedTests) {
             $global:TestName = 'TestGetEdgeGateway'
 
-            $gateways = Get-AzsEdgeGateway -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+            $gateways = Get-AzsEdgeGateway  
             $gateways | Should not be $null
             foreach ($gateway in $gateways) {
-                $retrieved = Get-AzsEdgeGateway -ResourceGroupName $global:ResourceGroupName -Location $Location -Name $gateway.Name
+                $retrieved = Get-AzsEdgeGateway  -Location $Location -Name $gateway.Name
                 AssertEdgeGatewaysAreSame -Expected $gateway -Found $retrieved
                 break
             }
@@ -91,9 +91,9 @@ Describe 'Get-AzsEdgeGateway' {
         It "TestGetAllEdgeGateways" -Skip:$('TestGetAllEdgeGateways' -in $global:SkippedTests) {
             $global:TestName = 'TestGetAllEdgeGateways'
 
-            $gateways = Get-AzsEdgeGateway -ResourceGroupName $global:ResourceGroupName -Location $Location
+            $gateways = Get-AzsEdgeGateway  -Location $Location
             foreach ($gateway in $gateways) {
-                $retrieved = Get-AzsEdgeGateway -ResourceGroupName $global:ResourceGroupName -Location $Location -Name $gateway.Name
+                $retrieved = Get-AzsEdgeGateway  -Location $Location -Name $gateway.Name
                 AssertEdgeGatewaysAreSame -Expected $gateway -Found $retrieved
             }
         }

@@ -68,7 +68,7 @@ Describe 'Get-AzsInfrastructureShare' {
     It "TestListFileShares" -Skip:$('TestListFileShares' -in $global:SkippedTests) {
         $global:TestName = 'TestListFileShares'
 
-        $fileShares = Get-AzsInfrastructureShare -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $fileShares = Get-AzsInfrastructureShare  
         $fileShares | Should not be $null
         foreach ($fileShare in $fileShares) {
             ValidateFileShare -Share $fileShare
@@ -78,10 +78,10 @@ Describe 'Get-AzsInfrastructureShare' {
     It "TestGetFileShare" -Skip:$('TestGetFileShare' -in $global:SkippedTests) {
         $global:TestName = 'TestGetFileShare'
 
-        $fileShares = Get-AzsInfrastructureShare -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $fileShares = Get-AzsInfrastructureShare  
         if ($fileShares -and $fileShares.Count -gt 0) {
             $fileShare = $fileShares[0]
-            $retrieved = Get-AzsInfrastructureShare -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $fileShare.Name
+            $retrieved = Get-AzsInfrastructureShare   -Name $fileShare.Name
 
             AssertFileSharesAreSame -Expected $fileShare -Found $retrieved
         }
@@ -90,9 +90,9 @@ Describe 'Get-AzsInfrastructureShare' {
     It "TestGetAllFileShares" -Skip:$('TestGetAllFileShares' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllFileShares'
 
-        $fileShares = Get-AzsInfrastructureShare -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $fileShares = Get-AzsInfrastructureShare  
         foreach ($fileShare in $fileShares) {
-            $retrieved = Get-AzsInfrastructureShare -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $fileShare.Name
+            $retrieved = Get-AzsInfrastructureShare   -Name $fileShare.Name
             AssertFileSharesAreSame -Expected $fileShare -Found $retrieved
         }
     }
@@ -100,7 +100,7 @@ Describe 'Get-AzsInfrastructureShare' {
     It "TestGetFileShareByInputObject" -Skip:$('TestGetFileShareByInputObject' -in $global:SkippedTests) {
         $global:TestName = 'TestGetFileShareByInputObject'
 
-        $fileShare = Get-AzsInfrastructureShare -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Top 1
+        $fileShare = Get-AzsInfrastructureShare   -Top 1
         $retrieved = Get-AzsInfrastructureShare -InputObject $fileShare
         AssertFileSharesAreSame -Expected $fileShare -Found $retrieved
     }

@@ -94,11 +94,11 @@ Describe 'Get-AzsDrive' {
     It "TestListDrives" -Skip:$('TestListDrives' -in $global:SkippedTests) {
         $global:TestName = 'TestListDrives'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
-            $storageSubSystems = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name
+            $storageSubSystems = Get-AzsStorageSubSystem -ScaleUnit $scaleUnit.Name
             foreach ($storageSubSystem in $storageSubSystems) {
-                $drives = Get-AzsDrive -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name
+                $drives = Get-AzsDrive -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name
                 $drives | Should Not Be $null
                 foreach ($drive in $drives) {
                     ValidateDrive $drive
@@ -110,13 +110,13 @@ Describe 'Get-AzsDrive' {
     It "TestGetDrive" -Skip:$('TestGetDrive' -in $global:SkippedTests) {
         $global:TestName = 'TestGetDrive'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
-            $storageSubSystems = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name
+            $storageSubSystems = Get-AzsStorageSubSystem -ScaleUnit $scaleUnit.Name
             foreach ($storageSubSystem in $storageSubSystems) {
-                $drives = Get-AzsDrive -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name
+                $drives = Get-AzsDrive -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name
                 foreach ($drive in $drives) {
-                    $retrieved = Get-AzsDrive -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Name $drive.Name
+                    $retrieved = Get-AzsDrive -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Name $drive.Name
                     AssertDrivesAreSame -Expected $drive -Found $retrieved
                     break
                 }
@@ -129,13 +129,13 @@ Describe 'Get-AzsDrive' {
     It "TestGetAllDrives" -Skip:$('TestGetAllDrives' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllDrives'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
-            $storageSubSystems = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name
+            $storageSubSystems = Get-AzsStorageSubSystem -ScaleUnit $scaleUnit.Name
             foreach ($storageSubSystem in $storageSubSystems) {
-                $drives = Get-AzsDrive -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name
+                $drives = Get-AzsDrive -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name
                 foreach ($drive in $drives) {
-                    $retrieved = Get-AzsDrive -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Name $drive.Name
+                    $retrieved = Get-AzsDrive -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Name $drive.Name
                     AssertDrivesAreSame -Expected $drive -Found $retrieved
                 }
             }
@@ -145,12 +145,12 @@ Describe 'Get-AzsDrive' {
     It "TestGetInvaildDrive" -Skip:$('TestGetInvaildDrive' -in $global:SkippedTests) {
         $global:TestName = 'TestGetInvaildDrive'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
-            $storageSubSystems = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name
+            $storageSubSystems = Get-AzsStorageSubSystem -ScaleUnit $scaleUnit.Name
             foreach ($storageSubSystem in $storageSubSystems) {
                 $invaildDriveName = "invailddrivename"
-                $retrieved = Get-AzsDrive -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Name $invaildDriveName
+                $retrieved = Get-AzsDrive -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Name $invaildDriveName
                 $retrieved | Should Be $null
                 break
             }
@@ -161,11 +161,11 @@ Describe 'Get-AzsDrive' {
     It "TestGetDriveByInputObject" -Skip:$('TestGetDriveByInputObject' -in $global:SkippedTests) {
         $global:TestName = 'TestGetDriveByInputObject'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
             $storageSubSystems = Get-AzsStorageSubSystem -ScaleUnit $scaleUnit.Name
             foreach ($storageSubSystem in $storageSubSystems) {
-                $drive = Get-AzsDrive -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Top 1
+                $drive = Get-AzsDrive -ScaleUnit $scaleUnit.Name -StorageSubSystem $storageSubSystem.Name -Top 1
                 $retrieved = Get-AzsDrive -InputObject $drive
                 AssertDrivesAreSame -Expected $drive -Found $retrieved
             }

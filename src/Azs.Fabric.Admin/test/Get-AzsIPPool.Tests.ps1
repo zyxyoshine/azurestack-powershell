@@ -73,7 +73,7 @@ Describe "IpPools" -Tags @('IpPool', 'Azs.Fabric.Admin') {
 
     It "TestListIpPools" -Skip:$('TestListIpPools' -in $global:SkippedTests) {
         $global:TestName = 'TestListIpPools'
-        $IpPools = Get-AzsIpPool -ResourceGroupName $global:ResourceGroupName -Location $Location
+        $IpPools = Get-AzsIpPool  -Location $Location
         $IpPools | Should not be $null
         foreach ($IpPool in $IpPools) {
             ValidateIpPool -IpPool $IpPool
@@ -83,10 +83,10 @@ Describe "IpPools" -Tags @('IpPool', 'Azs.Fabric.Admin') {
     It "TestGetIpPool" -Skip:$('TestGetIpPool' -in $global:SkippedTests) {
         $global:TestName = 'TestGetIpPool'
 
-        $IpPools = Get-AzsIpPool -ResourceGroupName $global:ResourceGroupName -Location $Location
+        $IpPools = Get-AzsIpPool  -Location $Location
         if ($IpPools -and $IpPools.Count -gt 0) {
             $IpPool = $IpPools[0]
-            $retrieved = Get-AzsIpPool -ResourceGroupName $global:ResourceGroupName -Location $Location -Name $IpPool.Name
+            $retrieved = Get-AzsIpPool  -Location $Location -Name $IpPool.Name
             AssertIpPoolsAreSame -Expected $IpPool -Found $retrieved
         }
     }
@@ -94,9 +94,9 @@ Describe "IpPools" -Tags @('IpPool', 'Azs.Fabric.Admin') {
     It "TestGetAllIpPools" -Skip:$('TestGetAllIpPools' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllIpPools'
 
-        $IpPools = Get-AzsIpPool -ResourceGroupName $global:ResourceGroupName -Location $Location
+        $IpPools = Get-AzsIpPool  -Location $Location
         foreach ($IpPool in $IpPools) {
-            $retrieved = Get-AzsIpPool -ResourceGroupName $global:ResourceGroupName -Location $Location -Name $IpPool.Name
+            $retrieved = Get-AzsIpPool  -Location $Location -Name $IpPool.Name
             AssertIpPoolsAreSame -Expected $IpPool -Found $retrieved
         }
     }

@@ -73,9 +73,9 @@ Describe 'Get-AzsStorageSubSystem' {
     It "TestListStorageSubSystems" -Skip:$('TestListStorageSubSystems' -in $global:SkippedTests) {
         $global:TestName = 'TestListStorageSubSystems'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
-            $StorageSubSystems = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name
+            $StorageSubSystems = Get-AzsStorageSubSystem   -ScaleUnit $scaleUnit.Name
             $StorageSubSystems | Should Not Be $null
             foreach ($StorageSubSystem in $StorageSubSystems) {
                 ValidateStorageSubSystem -StorageSubSystem $StorageSubSystem
@@ -86,11 +86,11 @@ Describe 'Get-AzsStorageSubSystem' {
     It "TestGetStorageSubSystem" -Skip:$('TestGetStorageSubSystem' -in $global:SkippedTests) {
         $global:TestName = 'TestGetStorageSubSystem'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
-            $StorageSubSystems = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name
+            $StorageSubSystems = Get-AzsStorageSubSystem   -ScaleUnit $scaleUnit.Name
             foreach ($StorageSubSystem in $StorageSubSystems) {
-                $retrieved = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -Name $StorageSubSystem.Name
+                $retrieved = Get-AzsStorageSubSystem   -ScaleUnit $scaleUnit.Name -Name $StorageSubSystem.Name
                 AssertStorageSubSystemsAreSame -Expected $StorageSubSystem -Found $retrieved
                 break
             }
@@ -101,11 +101,11 @@ Describe 'Get-AzsStorageSubSystem' {
     It "TestGetAllStorageSubSystems" -Skip:$('TestGetAllStorageSubSystems' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllStorageSubSystems'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
-            $StorageSubSystems = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name
+            $StorageSubSystems = Get-AzsStorageSubSystem   -ScaleUnit $scaleUnit.Name
             foreach ($StorageSubSystem in $StorageSubSystems) {
-                $retrieved = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -Name $StorageSubSystem.Name
+                $retrieved = Get-AzsStorageSubSystem   -ScaleUnit $scaleUnit.Name -Name $StorageSubSystem.Name
                 AssertStorageSubSystemsAreSame -Expected $StorageSubSystem -Found $retrieved
             }
         }
@@ -114,10 +114,10 @@ Describe 'Get-AzsStorageSubSystem' {
     It "TestGetInvaildStorageSubSystem" -Skip:$('TestGetInvaildStorageSubSystem' -in $global:SkippedTests) {
         $global:TestName = 'TestGetInvaildStorageSubSystem'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
             $invaildStorageSubSystemName = "invaildstoragesubsystemname"
-            $retrieved = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -Name $invaildStorageSubSystemName
+            $retrieved = Get-AzsStorageSubSystem   -ScaleUnit $scaleUnit.Name -Name $invaildStorageSubSystemName
             $retrieved | Should Be $null
             break
         }
@@ -126,9 +126,9 @@ Describe 'Get-AzsStorageSubSystem' {
     It "TestGetStorageSubSystemByInputObject" -Skip:$('TestGetStorageSubSystemByInputObject' -in $global:SkippedTests) {
         $global:TestName = 'TestGetStorageSubSystemByInputObject'
 
-        $scaleUnits = Get-AzsScaleUnit -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $scaleUnits = Get-AzsScaleUnit  
         foreach ($scaleUnit in $scaleUnits) {
-            $StorageSubSystem = Get-AzsStorageSubSystem -ResourceGroupName $global:ResourceGroupName -Location $global:Location -ScaleUnit $scaleUnit.Name -Top 1
+            $StorageSubSystem = Get-AzsStorageSubSystem   -ScaleUnit $scaleUnit.Name -Top 1
             $retrieved = Get-AzsStorageSubSystem -InputObject $StorageSubSystem
             AssertStorageSubSystemsAreSame -Expected $StorageSubSystem -Found $retrieved
         }

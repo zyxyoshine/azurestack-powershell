@@ -72,7 +72,7 @@ Describe 'Get-AzsInfrastructureRoleInstance' {
 
     It "TestListInfraRoleInstances" -Skip:$('TestListInfraRoleInstances' -in $global:SkippedTests) {
         $global:TestName = 'TestListInfraRoleInstances'
-        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance  
         $InfrastructureRoleInstances | Should Not Be $null
         foreach ($InfrastructureRoleInstance in $InfrastructureRoleInstances) {
             ValidateInfrastructureRoleInstance -InfrastructureRoleInstance $InfrastructureRoleInstance
@@ -82,9 +82,9 @@ Describe 'Get-AzsInfrastructureRoleInstance' {
     It "TestGetInfraRoleInstance" -Skip:$('TestGetInfraRoleInstance' -in $global:SkippedTests) {
         $global:TestName = 'TestGetInfraRoleInstance'
 
-        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance  
         foreach ($InfrastructureRoleInstance in $InfrastructureRoleInstances) {
-            $retrieved = Get-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $InfrastructureRoleInstance.Name
+            $retrieved = Get-AzsInfrastructureRoleInstance   -Name $InfrastructureRoleInstance.Name
             AssertInfrastructureRoleInstancesAreSame -Expected $InfrastructureRoleInstance -Found $retrieved
             break
         }
@@ -93,9 +93,9 @@ Describe 'Get-AzsInfrastructureRoleInstance' {
     It "TestGetAllInfraRoleInstances" -Skip:$('TestGetAllInfraRoleInstances' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllInfraRoleInstances'
 
-        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance  
         foreach ($InfrastructureRoleInstance in $InfrastructureRoleInstances) {
-            $retrieved = Get-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $InfrastructureRoleInstance.Name
+            $retrieved = Get-AzsInfrastructureRoleInstance   -Name $InfrastructureRoleInstance.Name
             AssertInfrastructureRoleInstancesAreSame -Expected $InfrastructureRoleInstance -Found $retrieved
         }
     }
@@ -104,9 +104,9 @@ Describe 'Get-AzsInfrastructureRoleInstance' {
     It "TestInfraRoleInstancePowerOn" -Skip:$('TestInfraRoleInstancePowerOn' -in $global:SkippedTests) {
         $global:TestName = 'TestInfraRoleInstancePowerOn'
 
-        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance  
         foreach ($InfrastructureRoleInstance in $InfrastructureRoleInstances) {
-            Start-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $InfrastructureRoleInstance.Name -Force
+            Start-AzsInfrastructureRoleInstance   -Name $InfrastructureRoleInstance.Name -Force
             break
         }
     }
@@ -115,9 +115,9 @@ Describe 'Get-AzsInfrastructureRoleInstance' {
     It "TestInfraRoleInstancePowerOnAll" -Skip:$('TestInfraRoleInstancePowerOnAll' -in $global:SkippedTests) {
         $global:TestName = 'TestInfraRoleInstancePowerOnAll'
 
-        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance  
         foreach ($InfrastructureRoleInstance in $InfrastructureRoleInstances) {
-            Start-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $InfrastructureRoleInstance.Name -Force
+            Start-AzsInfrastructureRoleInstance   -Name $InfrastructureRoleInstance.Name -Force
         }
     }
 
@@ -125,27 +125,27 @@ Describe 'Get-AzsInfrastructureRoleInstance' {
     It "TestGetInfrastructureRoleInstanceOnTenantVM" -Skip:$('TestGetInfrastructureRoleInstanceOnTenantVM' -in $global:SkippedTests) {
         $global:TestName = 'TestGetInfrastructureRoleInstanceOnTenantVM'
 
-        { Get-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $global:TenantVMName -ErrorAction Stop } | Should Throw
+        { Get-AzsInfrastructureRoleInstance   -Name $global:TenantVMName -ErrorAction Stop } | Should Throw
     }
 
     It "TestInfrastructureRoleInstanceShutdownOnTenantVM" -Skip:$('TestInfrastructureRoleInstanceShutdownOnTenantVM' -in $global:SkippedTests) {
         $global:TestName = 'TestInfrastructureRoleInstanceShutdownOnTenantVM'
         {
-            Disable-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $global:TenantVMName -Force -ErrorAction Stop
+            Disable-AzsInfrastructureRoleInstance   -Name $global:TenantVMName -Force -ErrorAction Stop
         } | Should Throw
     }
 
     It "TestInfrastructureRoleInstanceRebootOnTenantVM" -Skip:$('TestInfrastructureRoleInstanceRebootOnTenantVM' -in $global:SkippedTests) {
         $global:TestName = 'TestInfrastructureRoleInstanceRebootOnTenantVM'
         {
-            Restart-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $global:TenantVMName -Force -ErrorAction Stop
+            Restart-AzsInfrastructureRoleInstance   -Name $global:TenantVMName -Force -ErrorAction Stop
         } | Should Throw
     }
 
     It "TestInfrastructureRoleInstancePowerOffOnTenantVM" -Skip:$('TestInfrastructureRoleInstancePowerOffOnTenantVM' -in $global:SkippedTests) {
         $global:TestName = 'TestInfrastructureRoleInstancePowerOffOnTenantVM'
         {
-            Stop-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $global:TenantVMName -Force -ErrorAction Stop
+            Stop-AzsInfrastructureRoleInstance   -Name $global:TenantVMName -Force -ErrorAction Stop
         } | Should Throw
     }
 
@@ -155,9 +155,9 @@ Describe 'Get-AzsInfrastructureRoleInstance' {
     It "TestInfrastructureRoleInstanceShutdown" -Skip:$('TestInfrastructureRoleInstanceShutdown' -in $global:SkippedTests) {
         $global:TestName = 'TestInfrastructureRoleInstanceShutdown'
 
-        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance  
         foreach ($InfrastructureRoleInstance in $InfrastructureRoleInstances) {
-            Disable-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $InfrastructureRoleInstance.Name -Force
+            Disable-AzsInfrastructureRoleInstance   -Name $InfrastructureRoleInstance.Name -Force
             break
         }
     }
@@ -165,9 +165,9 @@ Describe 'Get-AzsInfrastructureRoleInstance' {
     It "TestInfrastructureRoleInstancePowerOff" -Skip:$('TestInfrastructureRoleInstancePowerOff' -in $global:SkippedTests) {
         $global:TestName = 'TestInfrastructureRoleInstancePowerOff'
 
-        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance  
         foreach ($InfrastructureRoleInstance in $InfrastructureRoleInstances) {
-            Stop-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $InfrastructureRoleInstance.Name -Force
+            Stop-AzsInfrastructureRoleInstance   -Name $InfrastructureRoleInstance.Name -Force
             break
         }
     }
@@ -175,9 +175,9 @@ Describe 'Get-AzsInfrastructureRoleInstance' {
     It "TestInfrastructureRoleInstanceReboot" -Skip:$('TestInfrastructureRoleInstanceReboot' -in $global:SkippedTests) {
         $global:TestName = 'TestInfrastructureRoleInstanceReboot'
 
-        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $InfrastructureRoleInstances = Get-AzsInfrastructureRoleInstance  
         foreach ($InfrastructureRoleInstance in $InfrastructureRoleInstances) {
-            Restart-AzsInfrastructureRoleInstance -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $InfrastructureRoleInstance.Name -Force
+            Restart-AzsInfrastructureRoleInstance   -Name $InfrastructureRoleInstance.Name -Force
             break
         }
     }

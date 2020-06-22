@@ -83,9 +83,9 @@ Describe 'Get-AzsLogicalSubnet' {
     it "TestListLogicalSubnets" -Skip:$('TestListLogicalSubnets' -in $global:SkippedTests) {
         $global:TestName = 'TestListLogicalSubnets'
 
-        $logicalNetworks = Get-AzsLogicalNetwork -ResourceGroupName $global:ResourceGroupName -Location $Location
+        $logicalNetworks = Get-AzsLogicalNetwork  -Location $Location
         foreach ($logicalNetwork in $logicalNetworks) {
-            $logicalSubnets = Get-AzsLogicalSubnet -ResourceGroupName $global:ResourceGroupName -Location $Location -LogicalNetwork $logicalNetwork.Name
+            $logicalSubnets = Get-AzsLogicalSubnet  -Location $Location -LogicalNetwork $logicalNetwork.Name
             foreach ($logicalSubnet in $logicalSubnets) {
                 ValidateLogicalSubnet $logicalSubnet
             }
@@ -97,11 +97,11 @@ Describe 'Get-AzsLogicalSubnet' {
     it "TestGetLogicalSubnet" -Skip:$('TestGetLogicalSubnet' -in $global:SkippedTests) {
         $global:TestName = 'TestGetLogicalSubnet'
 
-        $logicalNetworks = Get-AzsLogicalNetwork -ResourceGroupName $global:ResourceGroupName -Location $Location
+        $logicalNetworks = Get-AzsLogicalNetwork  -Location $Location
         foreach ($logicalNetwork in $logicalNetworks) {
-            $logicalSubnets = Get-AzsLogicalSubnet -ResourceGroupName $global:ResourceGroupName -Location $Location -LogicalNetwork $logicalNetwork.Name
+            $logicalSubnets = Get-AzsLogicalSubnet  -Location $Location -LogicalNetwork $logicalNetwork.Name
             foreach ($logicalSubnet in $logicalSubnets) {
-                $retrieved = Get-AzsLogicalSubnet -ResourceGroupName $global:ResourceGroupName -Location $Location -LogicalNetwork $logicalNetwork.Name -Name $logicalSubnet.Name
+                $retrieved = Get-AzsLogicalSubnet  -Location $Location -LogicalNetwork $logicalNetwork.Name -Name $logicalSubnet.Name
                 AssertLogicalSubnetsAreSame -Expected $logicalSubnet -Found $retrieved
                 break
             }
@@ -112,11 +112,11 @@ Describe 'Get-AzsLogicalSubnet' {
     it "TestGetAllLogicalSubnets" -Skip:$('TestGetAllLogicalSubnets' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllLogicalSubnets'
 
-        $logicalNetworks = Get-AzsLogicalNetwork -ResourceGroupName $global:ResourceGroupName -Location $Location
+        $logicalNetworks = Get-AzsLogicalNetwork  -Location $Location
         foreach ($logicalNetwork in $logicalNetworks) {
-            $logicalSubnets = Get-AzsLogicalSubnet -ResourceGroupName $global:ResourceGroupName -Location $Location -LogicalNetwork $logicalNetwork.Name
+            $logicalSubnets = Get-AzsLogicalSubnet  -Location $Location -LogicalNetwork $logicalNetwork.Name
             foreach ($logicalSubnet in $logicalSubnets) {
-                $retrieved = Get-AzsLogicalSubnet -ResourceGroupName $global:ResourceGroupName -Location $Location -LogicalNetwork $logicalNetwork.Name -Name $logicalSubnet.Name
+                $retrieved = Get-AzsLogicalSubnet  -Location $Location -LogicalNetwork $logicalNetwork.Name -Name $logicalSubnet.Name
                 AssertLogicalSubnetsAreSame -Expected $logicalSubnet -Found $retrieved
             }
         }

@@ -87,7 +87,7 @@ Describe 'Get-AzsScaleUnitNode' {
     It "TestListScaleUnitNodes" -Skip:$('TestListScaleUnitNodes' -in $global:SkippedTests) {
         $global:TestName = 'TestListScaleUnitNodes'
 
-        $ScaleUnitNodes = Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $ScaleUnitNodes = Get-AzsScaleUnitNode  
         $ScaleUnitNodes | Should Not Be $null
         foreach ($ScaleUnitNode in $ScaleUnitNodes) {
             ValidateScaleUnitNode -ScaleUnitNode $ScaleUnitNode
@@ -98,9 +98,9 @@ Describe 'Get-AzsScaleUnitNode' {
     It "TestGetScaleUnitNode" -Skip:$('TestGetScaleUnitNode' -in $global:SkippedTests) {
         $global:TestName = 'TestGetScaleUnitNode'
 
-        $ScaleUnitNodes = Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $ScaleUnitNodes = Get-AzsScaleUnitNode  
         foreach ($ScaleUnitNode in $ScaleUnitNodes) {
-            $retrieved = Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $ScaleUnitNode.Name
+            $retrieved = Get-AzsScaleUnitNode   -Name $ScaleUnitNode.Name
             AssertScaleUnitNodesAreSame -Expected $ScaleUnitNode -Found $retrieved
             break
         }
@@ -109,9 +109,9 @@ Describe 'Get-AzsScaleUnitNode' {
     It "TestGetAllScaleUnitNodes" -Skip:$('TestGetAllScaleUnitNodes' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllScaleUnitNodes'
 
-        $ScaleUnitNodes = Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $ScaleUnitNodes = Get-AzsScaleUnitNode  
         foreach ($ScaleUnitNode in $ScaleUnitNodes) {
-            $retrieved = Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $ScaleUnitNode.Name
+            $retrieved = Get-AzsScaleUnitNode   -Name $ScaleUnitNode.Name
             AssertScaleUnitNodesAreSame -Expected $ScaleUnitNode -Found $retrieved
         }
     }
@@ -119,11 +119,11 @@ Describe 'Get-AzsScaleUnitNode' {
     It "TestStartStopMaintenanceModeUnitNode" -Skip:$('TestStartStopMaintenanceModeUnitNode' -in $global:SkippedTests) {
         $global:TestName = 'TestStartStopMaintenanceModeUnitNode'
 
-        $ScaleUnitNodes = Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location
+        $ScaleUnitNodes = Get-AzsScaleUnitNode  
         foreach ($ScaleUnitNode in $ScaleUnitNodes) {
             {
-                Disable-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $ScaleUnitNode.Name -Force -ErrorAction Stop
-                Enable-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $ScaleUnitNode.Name -Force -ErrorAction Stop
+                Disable-AzsScaleUnitNode   -Name $ScaleUnitNode.Name -Force -ErrorAction Stop
+                Enable-AzsScaleUnitNode   -Name $ScaleUnitNode.Name -Force -ErrorAction Stop
             } | Should Throw
             break
         }
@@ -134,6 +134,6 @@ Describe 'Get-AzsScaleUnitNode' {
     It "TestGetScaleUnitNodeOnTenantVM" -Skip:$('TestGetScaleUnitNodeOnTenantVM' -in $global:SkippedTests) {
         $global:TestName = 'TestGetAllScaleUnitNodes'
 
-        { Get-AzsScaleUnitNode -ResourceGroupName $global:ResourceGroupName -Location $global:Location -Name $global:TenantVMName -ErrorAction Stop } | Should Throw
+        { Get-AzsScaleUnitNode   -Name $global:TenantVMName -ErrorAction Stop } | Should Throw
     }
 }

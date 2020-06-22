@@ -65,7 +65,7 @@ Describe 'Get-AzsInfrastructureRole' {
 
         It "TestListInfraRoles" -Skip:$('TestListInfraRoles' -in $global:SkippedTests) {
             $global:TestName = 'TestListInfraRoles'
-            $InfrastructureRoles = Get-AzsInfrastructureRole -ResourceGroupName $global:ResourceGroupName -Location $Location
+            $InfrastructureRoles = Get-AzsInfrastructureRole  -Location $Location
             $InfrastructureRoles | Should Not Be $null
             foreach ($InfrastructureRole in $InfrastructureRoles) {
                 ValidateInfrastructureRole -InfrastructureRole $InfrastructureRole
@@ -75,9 +75,9 @@ Describe 'Get-AzsInfrastructureRole' {
         It "TestGetInfraRole" -Skip:$('TestGetInfraRole' -in $global:SkippedTests) {
             $global:TestName = 'TestGetInfraRole'
 
-            $InfrastructureRoles = Get-AzsInfrastructureRole -ResourceGroupName $global:ResourceGroupName -Location $Location
+            $InfrastructureRoles = Get-AzsInfrastructureRole  -Location $Location
             foreach ($InfrastructureRole in $InfrastructureRoles) {
-                $retrieved = Get-AzsInfrastructureRole -ResourceGroupName $global:ResourceGroupName -Location $Location -Name $InfrastructureRole.Name
+                $retrieved = Get-AzsInfrastructureRole  -Location $Location -Name $InfrastructureRole.Name
                 AssertInfrastructureRolesAreSame -Expected $InfrastructureRole -Found $retrieved
                 break
             }
@@ -86,12 +86,12 @@ Describe 'Get-AzsInfrastructureRole' {
         It "TestGetAllInfraRoles" -Skip:$('TestGetAllInfraRoles' -in $global:SkippedTests) {
             $global:TestName = 'TestGetAllInfraRoles'
 
-            $InfrastructureRoles = Get-AzsInfrastructureRole -ResourceGroupName $global:ResourceGroupName -Location $Location
+            $InfrastructureRoles = Get-AzsInfrastructureRole  -Location $Location
             foreach ($InfrastructureRole in $InfrastructureRoles) {
                 $name = $InfrastructureRole.Name
                 $check = -not ($name -like "*User*" -or $name -like "*Administrator*")
                 if ($check) {
-                    $retrieved = Get-AzsInfrastructureRole -ResourceGroupName $global:ResourceGroupName -Location $Location -Name $InfrastructureRole.Name
+                    $retrieved = Get-AzsInfrastructureRole  -Location $Location -Name $InfrastructureRole.Name
                     AssertInfrastructureRolesAreSame -Expected $InfrastructureRole -Found $retrieved
                 }
             }

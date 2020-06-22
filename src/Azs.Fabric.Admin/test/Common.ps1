@@ -2,8 +2,17 @@ $global:SkippedTests = @(
 )
 
 if ($global:TestMode -eq "Live") {
-    $global:Location = (Get-AzLocation)[0].Name
-    $global:ResourceGroupName = -join("System.",(Get-AzLocation)[0].Location)
+    $location = Get-AzLocation
+    if ($location.GetType().BaseType.Name -eq "Array")
+    {
+        $global:Location = $location[0].DisplayName
+        $global:ResourceGroupName = -join("System.", $global:Location)
+    }
+    else
+    {
+        $global:Location = $location.DisplayName
+        $global:ResourceGroupName = -join("System.", $global:Location)
+    }
 }
 else {
     $global:Location = "redmond"

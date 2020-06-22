@@ -1,8 +1,8 @@
 {
-  "Get-AzsEdgeGateway+[NoContext]+TestListEdgeGateways+$GET+https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways?api-version=2016-05-01+1": {
+  "Get-AzsEdgeGateway+[NoContext]+TestListEdgeGateways+$GET+https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways?api-version=2016-05-01+1": {
     "Request": {
       "Method": "GET",
-      "RequestUri": "https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways?api-version=2016-05-01",
+      "RequestUri": "https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways?api-version=2016-05-01",
       "Content": null,
       "Headers": {
         "x-ms-unique-id": [ "62" ],
@@ -39,10 +39,10 @@
       "Content": "{\"value\":[{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy01\",\"name\":\"redmond/n22r0903-Gwy01\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations/edgeGateways\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"state\":\"Active\",\"totalCapacity\":14000000,\"availableCapacity\":14000000,\"numberOfConnections\":0}},{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy02\",\"name\":\"redmond/n22r0903-Gwy02\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations/edgeGateways\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"state\":\"Active\",\"totalCapacity\":14000000,\"availableCapacity\":14000000,\"numberOfConnections\":0}},{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy03\",\"name\":\"redmond/n22r0903-Gwy03\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations/edgeGateways\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"state\":\"Redundant\",\"totalCapacity\":14000000,\"availableCapacity\":14000000,\"numberOfConnections\":0}}]}"
     }
   },
-  "Get-AzsEdgeGateway+[NoContext]+TestGetEdgeGateway+$GET+https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways?api-version=2016-05-01+1": {
+  "Get-AzsEdgeGateway+[NoContext]+TestGetEdgeGateway+$GET+https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways?api-version=2016-05-01+1": {
     "Request": {
       "Method": "GET",
-      "RequestUri": "https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways?api-version=2016-05-01",
+      "RequestUri": "https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways?api-version=2016-05-01",
       "Content": null,
       "Headers": {
         "x-ms-unique-id": [ "63" ],
@@ -79,10 +79,10 @@
       "Content": "{\"value\":[{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy01\",\"name\":\"redmond/n22r0903-Gwy01\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations/edgeGateways\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"state\":\"Active\",\"totalCapacity\":14000000,\"availableCapacity\":14000000,\"numberOfConnections\":0}},{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy02\",\"name\":\"redmond/n22r0903-Gwy02\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations/edgeGateways\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"state\":\"Active\",\"totalCapacity\":14000000,\"availableCapacity\":14000000,\"numberOfConnections\":0}},{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy03\",\"name\":\"redmond/n22r0903-Gwy03\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations/edgeGateways\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"state\":\"Redundant\",\"totalCapacity\":14000000,\"availableCapacity\":14000000,\"numberOfConnections\":0}}]}"
     }
   },
-  "Get-AzsEdgeGateway+[NoContext]+TestGetEdgeGateway+$GET+https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy01?api-version=2016-05-01+2": {
+  "Get-AzsEdgeGateway+[NoContext]+TestGetEdgeGateway+$GET+https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy01?api-version=2016-05-01+2": {
     "Request": {
       "Method": "GET",
-      "RequestUri": "https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy01?api-version=2016-05-01",
+      "RequestUri": "https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy01?api-version=2016-05-01",
       "Content": null,
       "Headers": {
         "x-ms-unique-id": [ "64" ],
@@ -119,10 +119,10 @@
       "Content": "{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy01\",\"name\":\"redmond/n22r0903-Gwy01\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations/edgeGateways\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"state\":\"Active\",\"totalCapacity\":14000000,\"availableCapacity\":14000000,\"numberOfConnections\":0}}"
     }
   },
-  "Get-AzsEdgeGateway+[NoContext]+TestGetAllEdgeGateways+$GET+https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways?api-version=2016-05-01+1": {
+  "Get-AzsEdgeGateway+[NoContext]+TestGetAllEdgeGateways+$GET+https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways?api-version=2016-05-01+1": {
     "Request": {
       "Method": "GET",
-      "RequestUri": "https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways?api-version=2016-05-01",
+      "RequestUri": "https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways?api-version=2016-05-01",
       "Content": null,
       "Headers": {
         "x-ms-unique-id": [ "65" ],
@@ -159,10 +159,10 @@
       "Content": "{\"value\":[{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy01\",\"name\":\"redmond/n22r0903-Gwy01\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations/edgeGateways\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"state\":\"Active\",\"totalCapacity\":14000000,\"availableCapacity\":14000000,\"numberOfConnections\":0}},{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy02\",\"name\":\"redmond/n22r0903-Gwy02\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations/edgeGateways\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"state\":\"Active\",\"totalCapacity\":14000000,\"availableCapacity\":14000000,\"numberOfConnections\":0}},{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy03\",\"name\":\"redmond/n22r0903-Gwy03\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations/edgeGateways\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"state\":\"Redundant\",\"totalCapacity\":14000000,\"availableCapacity\":14000000,\"numberOfConnections\":0}}]}"
     }
   },
-  "Get-AzsEdgeGateway+[NoContext]+TestGetAllEdgeGateways+$GET+https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy01?api-version=2016-05-01+2": {
+  "Get-AzsEdgeGateway+[NoContext]+TestGetAllEdgeGateways+$GET+https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy01?api-version=2016-05-01+2": {
     "Request": {
       "Method": "GET",
-      "RequestUri": "https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy01?api-version=2016-05-01",
+      "RequestUri": "https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy01?api-version=2016-05-01",
       "Content": null,
       "Headers": {
         "x-ms-unique-id": [ "66" ],
@@ -199,10 +199,10 @@
       "Content": "{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy01\",\"name\":\"redmond/n22r0903-Gwy01\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations/edgeGateways\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"state\":\"Active\",\"totalCapacity\":14000000,\"availableCapacity\":14000000,\"numberOfConnections\":0}}"
     }
   },
-  "Get-AzsEdgeGateway+[NoContext]+TestGetAllEdgeGateways+$GET+https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy02?api-version=2016-05-01+3": {
+  "Get-AzsEdgeGateway+[NoContext]+TestGetAllEdgeGateways+$GET+https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy02?api-version=2016-05-01+3": {
     "Request": {
       "Method": "GET",
-      "RequestUri": "https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy02?api-version=2016-05-01",
+      "RequestUri": "https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy02?api-version=2016-05-01",
       "Content": null,
       "Headers": {
         "x-ms-unique-id": [ "67" ],
@@ -239,10 +239,10 @@
       "Content": "{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy02\",\"name\":\"redmond/n22r0903-Gwy02\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations/edgeGateways\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"state\":\"Active\",\"totalCapacity\":14000000,\"availableCapacity\":14000000,\"numberOfConnections\":0}}"
     }
   },
-  "Get-AzsEdgeGateway+[NoContext]+TestGetAllEdgeGateways+$GET+https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy03?api-version=2016-05-01+4": {
+  "Get-AzsEdgeGateway+[NoContext]+TestGetAllEdgeGateways+$GET+https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy03?api-version=2016-05-01+4": {
     "Request": {
       "Method": "GET",
-      "RequestUri": "https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy03?api-version=2016-05-01",
+      "RequestUri": "https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond/edgeGateways/n22r0903-Gwy03?api-version=2016-05-01",
       "Content": null,
       "Headers": {
         "x-ms-unique-id": [ "68" ],

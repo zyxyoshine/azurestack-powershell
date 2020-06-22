@@ -1,8 +1,8 @@
 {
-  "Get-AzsInfrastructureLocation+[NoContext]+TestListFabricLocations+$GET+https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01+1": {
+  "Get-AzsInfrastructureLocation+[NoContext]+TestListFabricLocations+$GET+https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01+1": {
     "Request": {
       "Method": "GET",
-      "RequestUri": "https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01",
+      "RequestUri": "https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01",
       "Content": null,
       "Headers": {
         "x-ms-unique-id": [ "39" ],
@@ -39,10 +39,10 @@
       "Content": "{\"value\":[{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond\",\"name\":\"redmond\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"pepIpAddresses\":[\"100.88.6.224\",\"100.88.6.225\",\"100.88.6.226\"],\"timeServer\":\"10.10.240.20\",\"stampInformationId\":\"0200274f-5ea2-41f1-93f9-31144ce0c975\",\"externalDNSIPAddress01\":\"n22r0903-ns01.redmond.ext-n22r0903.masd.stbtest.microsoft.com\",\"externalDNSIPAddress02\":\"n22r0903-ns02.redmond.ext-n22r0903.masd.stbtest.microsoft.com\",\"exclusiveAdminOperationRunning\":false}}]}"
     }
   },
-  "Get-AzsInfrastructureLocation+[NoContext]+TestGetFabricLocation+$GET+https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01+1": {
+  "Get-AzsInfrastructureLocation+[NoContext]+TestGetFabricLocation+$GET+https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01+1": {
     "Request": {
       "Method": "GET",
-      "RequestUri": "https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01",
+      "RequestUri": "https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01",
       "Content": null,
       "Headers": {
         "x-ms-unique-id": [ "40" ],
@@ -79,10 +79,10 @@
       "Content": "{\"value\":[{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond\",\"name\":\"redmond\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"pepIpAddresses\":[\"100.88.6.224\",\"100.88.6.225\",\"100.88.6.226\"],\"timeServer\":\"10.10.240.20\",\"stampInformationId\":\"0200274f-5ea2-41f1-93f9-31144ce0c975\",\"externalDNSIPAddress01\":\"n22r0903-ns01.redmond.ext-n22r0903.masd.stbtest.microsoft.com\",\"externalDNSIPAddress02\":\"n22r0903-ns02.redmond.ext-n22r0903.masd.stbtest.microsoft.com\",\"exclusiveAdminOperationRunning\":false}}]}"
     }
   },
-  "Get-AzsInfrastructureLocation+[NoContext]+TestGetFabricLocation+$GET+https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01+2": {
+  "Get-AzsInfrastructureLocation+[NoContext]+TestGetFabricLocation+$GET+https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01+2": {
     "Request": {
       "Method": "GET",
-      "RequestUri": "https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01",
+      "RequestUri": "https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01",
       "Content": null,
       "Headers": {
         "x-ms-unique-id": [ "41" ],
@@ -119,10 +119,10 @@
       "Content": "{\"value\":[{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond\",\"name\":\"redmond\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"pepIpAddresses\":[\"100.88.6.224\",\"100.88.6.225\",\"100.88.6.226\"],\"timeServer\":\"10.10.240.20\",\"stampInformationId\":\"0200274f-5ea2-41f1-93f9-31144ce0c975\",\"externalDNSIPAddress01\":\"n22r0903-ns01.redmond.ext-n22r0903.masd.stbtest.microsoft.com\",\"externalDNSIPAddress02\":\"n22r0903-ns02.redmond.ext-n22r0903.masd.stbtest.microsoft.com\",\"exclusiveAdminOperationRunning\":false}}]}"
     }
   },
-  "Get-AzsInfrastructureLocation+[NoContext]+TestGetAllFabricLocations+$GET+https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01+1": {
+  "Get-AzsInfrastructureLocation+[NoContext]+TestGetAllFabricLocations+$GET+https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01+1": {
     "Request": {
       "Method": "GET",
-      "RequestUri": "https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01",
+      "RequestUri": "https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01",
       "Content": null,
       "Headers": {
         "x-ms-unique-id": [ "42" ],
@@ -159,10 +159,10 @@
       "Content": "{\"value\":[{\"id\":\"/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations/redmond\",\"name\":\"redmond\",\"type\":\"Microsoft.Fabric.Admin/fabricLocations\",\"location\":\"redmond\",\"tags\":{},\"properties\":{\"pepIpAddresses\":[\"100.88.6.224\",\"100.88.6.225\",\"100.88.6.226\"],\"timeServer\":\"10.10.240.20\",\"stampInformationId\":\"0200274f-5ea2-41f1-93f9-31144ce0c975\",\"externalDNSIPAddress01\":\"n22r0903-ns01.redmond.ext-n22r0903.masd.stbtest.microsoft.com\",\"externalDNSIPAddress02\":\"n22r0903-ns02.redmond.ext-n22r0903.masd.stbtest.microsoft.com\",\"exclusiveAdminOperationRunning\":false}}]}"
     }
   },
-  "Get-AzsInfrastructureLocation+[NoContext]+TestGetAllFabricLocations+$GET+https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01+2": {
+  "Get-AzsInfrastructureLocation+[NoContext]+TestGetAllFabricLocations+$GET+https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01+2": {
     "Request": {
       "Method": "GET",
-      "RequestUri": "https://adminmanagement.redmond.ext-n22r0903.masd.stbtest.microsoft.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01",
+      "RequestUri": "https://management.azure.com/subscriptions/f7f5c0d1-e0a3-41f5-bf30-d27f13c9a3a7/resourceGroups/System.redmond/providers/Microsoft.Fabric.Admin/fabricLocations?api-version=2016-05-01",
       "Content": null,
       "Headers": {
         "x-ms-unique-id": [ "43" ],

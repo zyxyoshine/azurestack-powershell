@@ -135,6 +135,8 @@ process {
         {
             $PSBoundParameters['Name'] = $Name.Split("/")[-1]
         }
+
+        $params = @{}
         if ($PSBoundParameters.ContainsKey('Location')){
             $params.Add('Location', $Location)
         }

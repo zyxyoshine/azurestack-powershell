@@ -1,4 +1,4 @@
-#. (Join-Path $PSScriptRoot 'loadEnvJson.ps1')
+. (Join-Path $PSScriptRoot 'loadEnvJson.ps1')
 
 $TestRecordingFile = Join-Path $PSScriptRoot 'Set-AzsStorageQuota.Recording.json'
 $currentPath = $PSScriptRoot

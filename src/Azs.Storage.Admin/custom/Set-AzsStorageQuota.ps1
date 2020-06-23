@@ -165,7 +165,7 @@ process {
             $params.Add('SubscriptionId', $SubscriptionId)
         }
         
-        $quota = Azs.Storage.Admin.internal\Get-AzsStorageQuota -Name $quotaName @params
+        $quota = Get-AzsStorageQuota -Name $quotaName @params
         
         if (-not $PSBoundParameters.ContainsKey('CapacityInGb'))
         {

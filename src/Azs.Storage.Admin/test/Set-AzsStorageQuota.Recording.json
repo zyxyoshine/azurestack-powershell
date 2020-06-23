@@ -1,8 +1,8 @@
 {
-  "Set-AzsStorageQuota+[NoContext]+TestUpdateStorageQuota+$GET+https://adminmanagement.redmond.ext-s31r1803.masd.stbtest.microsoft.com/subscriptions/624575d6-5820-4528-8d07-53b5748f2fcc/providers/Microsoft.Storage.Admin/locations/redmond/quotas/Default Quota?api-version=2019-08-08-preview+1": {
+  "Set-AzsStorageQuota+[NoContext]+TestUpdateStorageQuota+$GET+https://management.azure.com/subscriptions/624575d6-5820-4528-8d07-53b5748f2fcc/providers/Microsoft.Storage.Admin/locations/redmond/quotas/Default Quota?api-version=2019-08-08-preview+1": {
     "Request": {
       "Method": "GET",
-      "RequestUri": "https://adminmanagement.redmond.ext-s31r1803.masd.stbtest.microsoft.com/subscriptions/624575d6-5820-4528-8d07-53b5748f2fcc/providers/Microsoft.Storage.Admin/locations/redmond/quotas/Default%20Quota?api-version=2019-08-08-preview",
+      "RequestUri": "https://management.azure.com/subscriptions/624575d6-5820-4528-8d07-53b5748f2fcc/providers/Microsoft.Storage.Admin/locations/redmond/quotas/Default%20Quota?api-version=2019-08-08-preview",
       "Content": null,
       "Headers": {
         "x-ms-unique-id": [ "139" ],
@@ -39,10 +39,10 @@
       "Content": "{\r\n  \"id\": \"/subscriptions/624575d6-5820-4528-8d07-53b5748f2fcc/providers/Microsoft.Storage.Admin/locations/redmond/quotas/Default Quota\",\r\n  \"name\": \"redmond/Default Quota\",\r\n  \"type\": \"Microsoft.Storage.Admin/locations/quotas\",\r\n  \"location\": \"redmond\",\r\n  \"properties\": {\r\n    \"numberOfStorageAccounts\": 10,\r\n    \"capacityInGb\": 123\r\n  }\r\n}"
     }
   },
-  "Set-AzsStorageQuota+[NoContext]+TestUpdateStorageQuota+$PUT+https://adminmanagement.redmond.ext-s31r1803.masd.stbtest.microsoft.com/subscriptions/624575d6-5820-4528-8d07-53b5748f2fcc/providers/Microsoft.Storage.Admin/locations/redmond/quotas/Default Quota?api-version=2019-08-08-preview+2": {
+  "Set-AzsStorageQuota+[NoContext]+TestUpdateStorageQuota+$PUT+https://management.azure.com/subscriptions/624575d6-5820-4528-8d07-53b5748f2fcc/providers/Microsoft.Storage.Admin/locations/redmond/quotas/Default Quota?api-version=2019-08-08-preview+2": {
     "Request": {
       "Method": "PUT",
-      "RequestUri": "https://adminmanagement.redmond.ext-s31r1803.masd.stbtest.microsoft.com/subscriptions/624575d6-5820-4528-8d07-53b5748f2fcc/providers/Microsoft.Storage.Admin/locations/redmond/quotas/Default%20Quota?api-version=2019-08-08-preview",
+      "RequestUri": "https://management.azure.com/subscriptions/624575d6-5820-4528-8d07-53b5748f2fcc/providers/Microsoft.Storage.Admin/locations/redmond/quotas/Default%20Quota?api-version=2019-08-08-preview",
       "Content": "{\r\n  \"properties\": {\r\n    \"capacityInGb\": 123,\r\n    \"numberOfStorageAccounts\": 10\r\n  }\r\n}",
       "Headers": {
         "x-ms-unique-id": [ "141" ],
@@ -81,10 +81,10 @@
       "Content": "{\r\n  \"id\": \"/subscriptions/624575d6-5820-4528-8d07-53b5748f2fcc/providers/Microsoft.Storage.Admin/locations/redmond/quotas/Default Quota\",\r\n  \"name\": \"redmond/Default Quota\",\r\n  \"type\": \"Microsoft.Storage.Admin/locations/quotas\",\r\n  \"location\": \"redmond\",\r\n  \"properties\": {\r\n    \"numberOfStorageAccounts\": 10,\r\n    \"capacityInGb\": 123\r\n  }\r\n}"
     }
   },
-  "Set-AzsStorageQuota+[NoContext]+TestUpdateStorageQuota+$PUT+https://adminmanagement.redmond.ext-s31r1803.masd.stbtest.microsoft.com/subscriptions/624575d6-5820-4528-8d07-53b5748f2fcc/providers/Microsoft.Storage.Admin/locations/redmond/quotas/Default Quota?api-version=2019-08-08-preview+3": {
+  "Set-AzsStorageQuota+[NoContext]+TestUpdateStorageQuota+$PUT+https://management.azure.com/subscriptions/624575d6-5820-4528-8d07-53b5748f2fcc/providers/Microsoft.Storage.Admin/locations/redmond/quotas/Default Quota?api-version=2019-08-08-preview+3": {
     "Request": {
       "Method": "PUT",
-      "RequestUri": "https://adminmanagement.redmond.ext-s31r1803.masd.stbtest.microsoft.com/subscriptions/624575d6-5820-4528-8d07-53b5748f2fcc/providers/Microsoft.Storage.Admin/locations/redmond/quotas/Default%20Quota?api-version=2019-08-08-preview",
+      "RequestUri": "https://management.azure.com/subscriptions/624575d6-5820-4528-8d07-53b5748f2fcc/providers/Microsoft.Storage.Admin/locations/redmond/quotas/Default%20Quota?api-version=2019-08-08-preview",
       "Content": "{\r\n  \"properties\": {\r\n    \"capacityInGb\": 123,\r\n    \"numberOfStorageAccounts\": 10\r\n  }\r\n}",
       "Headers": {
         "x-ms-unique-id": [ "142" ],

@@ -76,6 +76,6 @@ Describe 'Set-AzsStorageQuota' {
         $updated.CapacityInGb               | Should Be $CapInGB
         $updated.NumberOfStorageAccounts    | Should Be $NumStorageAccounts
 
-        Set-AzsStorageQuota -QuotaObject $quota
+        $quota | Set-AzsStorageQuota
     }
 }

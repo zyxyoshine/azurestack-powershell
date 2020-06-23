@@ -67,10 +67,14 @@ Describe 'Get-AzsStorageQuota' {
     It "TestGetStorageQuota" -Skip:$('TestGetStorageQuota' -in $global:SkippedTests) {
         $global:TestName = 'TestGetStorageQuota'
 
-        $quotas = Get-AzsStorageQuota 
-        $quota = $quotas[0] | Get-AzsStorageQuota
-        ValidateStorageQuota -storageQuota $quota
-        AssertAreEqual -expected $quotas[0] -found $quota
+        $quota = Get-AzsStorageQuota 
+        if ($quota.GetType().BaseType.Name -eq "Array")
+        {
+            $quota = $quota[0]
+        }
+        $retrievedQuota = Get-AzsStorageQuota -InputObject $quota 
+        ValidateStorageQuota -storageQuota $retrievedQuota
+        AssertAreEqual -expected $quota -found $retrievedQuota
     }
 
     It "TestGetAllStorageQuotas" -Skip:$('TestGetAllStorageQuotas' -in $global:SkippedTests) {

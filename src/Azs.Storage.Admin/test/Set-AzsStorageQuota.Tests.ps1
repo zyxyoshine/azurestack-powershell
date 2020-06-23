@@ -70,7 +70,6 @@ Describe 'Set-AzsStorageQuota' {
         $updated = Set-AzsStorageQuota `
             -CapacityInGb $CapInGB `
             -NumberOfStorageAccounts $NumStorageAccounts `
-             `
             -Name $name
 
         ValidateStorageQuota -storageQuota $updated

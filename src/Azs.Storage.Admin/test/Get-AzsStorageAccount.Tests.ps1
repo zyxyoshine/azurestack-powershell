@@ -81,7 +81,7 @@ Describe 'Get-AzsStorageAccount' {
 
         $storageAccounts = Get-AzsStorageAccount  -Summary:$false
         foreach ($storageAccount in $storageAccounts) {
-            $result = $storageAccount | Get-AzsStorageAccount
+            $result = Get-AzsStorageAccount -InputObject $storageAccount
             ValidateStorageAccount -storageAccount $result
             AssertAreEqual -expected $storageAccount -found $result
             return

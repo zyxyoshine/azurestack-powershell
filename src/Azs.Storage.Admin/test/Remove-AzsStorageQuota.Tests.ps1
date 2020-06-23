@@ -22,6 +22,7 @@ Describe 'Remove-AzsStorageQuota' {
         $quota.NumberOfStorageAccounts | Should Be 100
         Remove-AzsStorageQuota  -Name $name
         $quota | New-AzsStorageQuota -Name $name
-        Get-AzsStorageQuota  -Name $name | Remove-AzsStorageQuota
+        $retrievedQuota = Get-AzsStorageQuota -Name $name
+        Remove-AzsStorageQuota -InputObject $retrievedQuota
     }
 }

@@ -154,16 +154,12 @@ function Set-AzsStorageQuota {
 
             if ($PSBoundParameters.ContainsKey('Location')) {
                 $params.Add('Location', $Location)
-                Write-Host "******* LOCATION ******* : $Location "
             }
             if ($PSBoundParameters.ContainsKey('SubscriptionId')) {
                 $params.Add('SubscriptionId', $SubscriptionId)
-                Write-Host "******* Sub ID ******* : $SubscriptionId "
             }
             
-            $DebugPreference="Continue"
             $quota = Get-AzsStorageQuota -Name $quotaName -ErrorAction SilentlyContinue @params
-            # $quota = Azs.Storage.Admin.internal\Get-AzsStorageQuota -Name $quotaName @params #-Location $Location -SubscriptionId $SubscriptionId
             
             if (-not $PSBoundParameters.ContainsKey('CapacityInGb')) {
                 $PSBoundParameters['CapacityInGb'] = $quota.CapacityInGb

@@ -145,15 +145,15 @@ process {
         }
     }
 
-        # Generated SDK does not support {location}/{updateName}/{name} for nested resource name, so extract the {name} part here
-        if ($PSBoundParameters.ContainsKey(('Name')))
+    # Generated SDK does not support {location}/{updateName}/{name} for nested resource name, so extract the {name} part here
+    if ($PSBoundParameters.ContainsKey(('Name')))
+    {
+        $Name = $PSBoundParameters['Name']
+        if ($null -ne $Name -and $Name.Contains('/'))
         {
-            $Name = $PSBoundParameters['Name']
-            if ($null -ne $Name -and $Name.Contains('/'))
-            {
-                $PSBoundParameters['Name'] = $Name.Split("/")[-1]
-            }
+            $PSBoundParameters['Name'] = $Name.Split("/")[-1]
         }
+    }
 
     Azs.Update.Admin.internal\Get-AzsUpdateRun @PSBoundParameters
 }

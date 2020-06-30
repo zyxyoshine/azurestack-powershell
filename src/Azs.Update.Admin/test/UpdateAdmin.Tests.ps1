@@ -51,6 +51,7 @@ $global:ModuleName = "Azs.Update.Admin"
 . (Join-Path $PSScriptRoot 'loadEnvJson.ps1')
 
 InModuleScope Azs.Update.Admin {
+    import-module Az.Resources
     Describe "UpdateAdminTests" -Tags @('UpdateAdminTests', 'Azs.Update.Admin') {
 
         BeforeEach {

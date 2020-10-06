@@ -55,7 +55,7 @@
 
     # Modules that must be imported into the global environment prior to importing this module
     ### IMPORTANT - Note that the module names are case sensitive ###
-    RequiredModules        = @(@{ModuleName = 'Az.Accounts'; ModuleVersion = '2.0.1'; },
+    RequiredModules        = @(@{ModuleName = 'Az.Accounts'; ModuleVersion = '2.0.2'; },
         @{ModuleName = 'Az.Resources'; RequiredVersion = '0.10.0'; },
         @{ModuleName = 'Azs.Azurebridge.Admin'; RequiredVersion = '0.9.1'; },
         @{ModuleName = 'Azs.Backup.Admin'; RequiredVersion = '0.9.0'; },
